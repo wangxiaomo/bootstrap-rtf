@@ -49,4 +49,4 @@ gulp.task('watch', function() {
   gulp.watch(APP_ROOT + 'statics/images/*', ['imagemin']);
 });
 
-gulp.task('default', ['usemin', 'imagemin']);
+gulp.task('default', ['clean', 'compass', 'usemin', 'imagemin']);
