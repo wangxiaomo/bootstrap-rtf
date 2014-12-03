@@ -13,11 +13,11 @@ var gulp = require('gulp'),
     del = require('del');
 
 gulp.task('clean', function(cb) {
-  del(['dist'], cb);
+  return del(['app/statics/css/*', 'dist'], cb);
 });
 
 gulp.task('compass', ['clean'], function() {
-  gulp.src(APP_ROOT + 'statics/scss/*.scss')
+  return gulp.src(APP_ROOT + 'statics/scss/*.scss')
     .pipe(compass({
       config_file: 'config.rb',
       css: APP_ROOT + 'statics/css',
@@ -26,7 +26,7 @@ gulp.task('compass', ['clean'], function() {
 });
 
 gulp.task('usemin', ['clean', 'compass'], function() {
-  gulp.src(APP_ROOT + '**/*.html')
+  return gulp.src(APP_ROOT + '**/*.html')
     .pipe(changed(DIST_ROOT))
     .pipe(usemin({
       css: [minifyCss(), 'concat', rev()],
@@ -37,7 +37,7 @@ gulp.task('usemin', ['clean', 'compass'], function() {
 });
 
 gulp.task('imagemin', ['clean'], function() {
-  gulp.src(APP_ROOT + 'statics/images/*')
+  return gulp.src(APP_ROOT + 'statics/images/*')
     .pipe(changed(DIST_ROOT + 'statics/images'))
     .pipe(imagemin({optimizationLevel: 5}))
     .pipe(gulp.dest(DIST_ROOT + 'statics/images'))
@@ -49,4 +49,4 @@ gulp.task('watch', function() {
   gulp.watch(APP_ROOT + 'statics/images/*', ['imagemin']);
 });
 
-gulp.task('default', ['clean', 'compass', 'usemin', 'imagemin']);
+gulp.task('default', ['clean', 'usemin', 'imagemin']);
