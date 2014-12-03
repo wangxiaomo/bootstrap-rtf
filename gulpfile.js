@@ -27,7 +27,7 @@ gulp.task('compass', ['clean'], function() {
 });
 
 gulp.task('usemin', ['clean'], function() {
-  gulp.src(APP_ROOT + '*.html')
+  gulp.src(APP_ROOT + '**/*.html')
     .pipe(changed(DIST_ROOT))
     .pipe(usemin({
       css: [minifyCss(), 'concat'],
@@ -45,7 +45,7 @@ gulp.task('imagemin', ['clean'], function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(APP_ROOT + '*.html', ['usemin']);
+  gulp.watch(APP_ROOT + '**/*.html', ['usemin']);
   gulp.watch(APP_ROOT + 'statics/scss/*.scss', ['compass', 'usemin']);
   gulp.watch(APP_ROOT + 'statics/images/*', ['imagemin']);
 });
