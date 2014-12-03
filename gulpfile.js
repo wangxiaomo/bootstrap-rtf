@@ -32,7 +32,8 @@ gulp.task('usemin', ['clean', 'compass'], function() {
       css: [minifyCss(), 'concat', rev()],
       html: [minifyHtml({empty: true})],
       js: [uglify(), rev()]
-    }));
+    }))
+    .pipe(gulp.dest(DIST_ROOT));
 });
 
 gulp.task('imagemin', ['clean'], function() {
@@ -48,4 +49,4 @@ gulp.task('watch', function() {
   gulp.watch(APP_ROOT + 'statics/images/*', ['imagemin']);
 });
 
-gulp.task('default', ['clean', 'usemin', 'imagemin']);
+gulp.task('default', ['usemin', 'imagemin']);
