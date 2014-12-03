@@ -22,15 +22,14 @@ gulp.task('compass', ['clean'], function() {
       config_file: 'config.rb',
       css: APP_ROOT + 'statics/css',
       sass: APP_ROOT + 'statics/scss'
-    }))
-    .pipe(gulp.dest(DIST_ROOT + 'statics/css'));
+    }));
 });
 
-gulp.task('usemin', ['clean'], function() {
+gulp.task('usemin', ['clean', 'compass'], function() {
   gulp.src(APP_ROOT + '**/*.html')
     .pipe(changed(DIST_ROOT))
     .pipe(usemin({
-      css: [minifyCss(), 'concat'],
+      css: [minifyCss(), 'concat', rev()],
       html: [minifyHtml({empty: true})],
       js: [uglify(), rev()]
     }))
