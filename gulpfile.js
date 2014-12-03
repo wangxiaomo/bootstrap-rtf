@@ -32,8 +32,7 @@ gulp.task('usemin', ['clean', 'compass'], function() {
       css: [minifyCss(), 'concat', rev()],
       html: [minifyHtml({empty: true})],
       js: [uglify(), rev()]
-    }))
-    .pipe(gulp.dest(DIST_ROOT));
+    }));
 });
 
 gulp.task('imagemin', ['clean'], function() {
