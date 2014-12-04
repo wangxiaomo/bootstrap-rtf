@@ -1,6 +1,11 @@
 angular.module('ngFancy')
   .controller('MainCtrl', ['$scope', '$modal', function($scope, $modal) {
 
+    var getHour = function () {
+      var date = new Date();
+      return date.getHours();
+    };
+
     $scope.showModal = function () {
       $('#overlay').show();
       var modalInstance = $modal.open({
@@ -13,7 +18,12 @@ angular.module('ngFancy')
     };
 
     $scope.go = function () {
-      $scope.showModal();
+      var cntHour = getHour();
+      if(cntHour < 7 || cntHour > 20){
+        $scope.showModal();
+      }else{
+        alert("跳转");
+      }
     };
   }]);
 
