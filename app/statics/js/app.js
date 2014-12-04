@@ -4,5 +4,9 @@ angular.module('ngFancy', ['ngRoute', 'ui.bootstrap'])
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/upload', {
+        templateUrl: 'views/upload.html',
+        controller: 'UploadCtrl'
       });
   }]);

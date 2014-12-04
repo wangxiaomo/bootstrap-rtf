@@ -1,5 +1,5 @@
 angular.module('ngFancy')
-  .controller('MainCtrl', ['$scope', '$modal', function($scope, $modal) {
+  .controller('MainCtrl', ['$scope', '$modal', '$location', function($scope, $modal, $location) {
 
     var getHour = function () {
       var date = new Date();
@@ -22,7 +22,7 @@ angular.module('ngFancy')
       if(cntHour < 7 || cntHour > 20){
         $scope.showModal();
       }else{
-        alert("跳转");
+        $location.path('/upload')
       }
     };
   }]);
