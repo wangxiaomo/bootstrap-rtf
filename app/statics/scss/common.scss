@@ -1,0 +1,114 @@
+@import "compass/css3";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+button:hover {
+  @include opacity(0.8);
+}
+
+footer {
+  margin-top: 20px;
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid #efefef;
+}
+
+/* landing page */
+.hd-alert {
+  height: 80px;
+  background-color: #eeeff0;
+  position: relative;
+}
+
+.hd-memo {
+  position: absolute;
+  display: inline-block;
+  color: #000;
+  left: 7%;
+  top: 28px;
+}
+
+.hd-alert p {
+  float: right;
+  width: 80%;
+  color: #db4a5a;
+  font-size: 15px;
+  margin-top: 20px;
+  padding: 0px 10px;
+}
+
+.bd {
+  padding-top: 20px;
+}
+
+.memo {
+  text-align: center;
+  color: #8c8c8c;
+  font-size: 18px;
+}
+
+.memo-fa {
+  margin-top: -10px;
+}
+
+.image-wrapper {
+  text-align: center;
+
+  img {
+    width: 90%;
+  }
+}
+
+.button-groups {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+
+  .btn-go, .button-sub-groups {
+    width: 90%;
+  }
+
+  .btn-go, .btn-test, .btn-result {
+    padding: 12px;
+  }
+
+  .btn-go {
+    background-color: #3d9af7;
+    border-color: #3d9af7;
+  }
+
+  .btn-test, .btn-result {
+    background-color: #3bb9f3;
+  }
+
+  .btn-test {
+    float: left;
+  }
+
+  .btn-result {
+    float: right;
+  }
+}
+
+.button-sub-groups {
+  margin-left: 5%;
+  height: 60px;
+
+  button {
+    width: 45%;
+    margin: 5% 0;
+    color: #fff;
+    @include border-radius(0px);
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
