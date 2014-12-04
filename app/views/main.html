@@ -1,19 +1,37 @@
-<div class="hd-alert">
-  <span class="hd-memo">提示</span>
-  <p>为确保安全请放置警示标志、开启双闪灯、注意过往车辆。</p>
-</div>
-<div class="bd">
-  <img class="bd-banner" src="statics/images/bd-banner.png" alt="轻微事故快处"/>
-  <p class="memo">适用于</p>
-  <p class="memo memo-fa"><i class="fa fa-chevron-down"></i></p>
-  <div class="image-wrapper">
-    <img src="statics/images/features.png" alt="轻微事故快处功能" />
+<div ng-controller="MainCtrl">
+  <div class="hd-alert">
+    <span class="hd-memo">提示</span>
+    <p>为确保安全请放置警示标志、开启双闪灯、注意过往车辆。</p>
   </div>
-  <div class="button-groups">
-    <button class="btn btn-primary btn-go">开始处理</button>
-    <div class="button-sub-groups">
-      <button class="btn btn-test">测试体验</button>
-      <button class="btn btn-result">查询结果</button>
+  <div class="bd">
+    <img class="bd-banner" src="statics/images/bd-banner.png" alt="轻微事故快处"/>
+    <p class="memo">适用于</p>
+    <p class="memo memo-fa"><i class="fa fa-chevron-down"></i></p>
+    <div class="image-wrapper">
+      <img src="statics/images/features.png" alt="轻微事故快处功能" />
+    </div>
+    <div class="button-groups">
+      <button class="btn btn-primary btn-go" ng-click="go()">开始处理</button>
+      <div class="button-sub-groups">
+        <button class="btn btn-test" ng-click="showModal()">处理时间</button>
+        <button class="btn btn-result">查询结果</button>
+      </div>
     </div>
   </div>
+
+  <script type="text/ng-template" id="modal-alert">
+    <div class="modal-header">
+      <h3 class="modal-title">使用提示</h3>
+    </div>
+    <div class="modal-body">
+      <img src="statics/images/clock.png" alt="clock img" />
+      <div class="meta">
+        <p>"快处中心"受理时间为</p>
+        <p class="p-bold">早<i class="clock">7</i>点至晚<i class="clock">21</i>点</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-goback" ng-click="dismiss()">返回</button>
+    </div>
+  </script>
 </div>

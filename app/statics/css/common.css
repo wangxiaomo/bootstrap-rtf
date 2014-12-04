@@ -12,6 +12,25 @@ button:hover {
   opacity: 0.8;
 }
 
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 footer {
   margin-top: 20px;
   padding: 15px;
@@ -103,4 +122,52 @@ footer {
 }
 .button-sub-groups button:hover {
   color: #fff;
+}
+
+/* modal alert */
+.modal {
+  top: 10%;
+}
+
+.modal-header {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #3d9af7;
+}
+.modal-header h3 {
+  color: #fff;
+}
+
+.modal-body {
+  text-align: center;
+}
+.modal-body img {
+  width: 50%;
+}
+.modal-body .meta {
+  margin-top: 23px;
+  color: #9c9c9c;
+}
+.modal-body .meta .p-bold {
+  color: #000;
+  font-size: 20px;
+}
+
+.modal-footer {
+  text-align: center;
+}
+.modal-footer .btn-goback {
+  width: 90%;
+  padding: 10px;
+  color: #fff;
+  background-color: #3d9af7;
+}
+
+.clock {
+  color: #1694ce;
+}
+
+.p-bold {
+  font-size: 18px;
 }

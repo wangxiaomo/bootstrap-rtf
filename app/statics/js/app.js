@@ -1,4 +1,4 @@
-angular.module('ngFancy', ['ngRoute'])
+angular.module('ngFancy', ['ngRoute', 'ui.bootstrap'])
   .config(['$routeProvider', function($routeProvider){
     $routeProvider
       .when('/', {

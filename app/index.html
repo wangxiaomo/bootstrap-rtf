@@ -13,15 +13,18 @@
     <!-- endbuild -->
   </head>
   <body>
+    <div id="overlay"></div>
     <section class="device" ng-view></section>
     <footer>
       <p>&copy; 2014 山西公安交警网</p>
     </footer>
 
     <!-- build:js statics/js/vendor.js -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/angular-route/angular-route.min.js"></script>
     <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <!-- endbuild -->
     <!-- build:js statics/js/app.js -->
     <script src="./statics/js/app.js"></script>
