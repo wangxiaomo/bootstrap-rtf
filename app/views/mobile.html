@@ -2,14 +2,20 @@
   <md-content>
     <md-card>
       <span class="input-label">您的手机号</span>
-      <span><img alt="input memo" src="./statics/images/people.png" /><input type="tel" name="tel1" placeholder="点击这里输入" /></span>
+      <span>
+        <img alt="input memo" src="./statics/images/people.png" />
+        <input type="tel" name="tel1" placeholder="点击这里输入" ng-model="tel1" required minlength="11" maxlength="11" />
+      </span>
       <span class="input-label">对方的手机号</span>
-      <span><img alt="input memo" src="./statics/images/people.png" /><input type="tel" name="tel2" placeholder="点击这里输入" /></span>
+      <span>
+        <img alt="input memo" src="./statics/images/people.png" />
+        <input type="tel" name="tel2" placeholder="点击这里输入" ng-model="tel2" required minlength="11" maxlength="11" />
+      </span>
       <div class="meta-wrapper">
         <p>为了方便与您联系，请确保</p>
         <p class="bigger">手机保持畅通!</p>
       </div>
-      <button class="btn btn-update-mobile">确认上传</button>
+      <button class="btn btn-update-mobile" ng-click="goNext()">确认上传</button>
     </md-card>
   </md-content>
 </div>
