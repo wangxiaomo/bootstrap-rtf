@@ -8,5 +8,9 @@ angular.module('ngFancy', ['ngRoute', 'ngStorage', 'ui.bootstrap', 'angular-load
       .when('/upload', {
         templateUrl: 'views/upload.html',
         controller: 'UploadCtrl'
+      })
+      .when('/mobile', {
+        templateUrl: 'views/mobile.html',
+        controller: 'MobileCtrl'
       });
   }]);

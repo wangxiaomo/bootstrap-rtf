@@ -369,3 +369,49 @@ md-content {
 .img-groups img {
   width: 30%;
 }
+
+/* mobile page */
+.mobile-page span {
+  display: block;
+  padding: 0px 10px 10px 10px;
+  position: relative;
+}
+.mobile-page span.input-label {
+  padding-top: 10px;
+}
+.mobile-page span input {
+  width: 100%;
+  height: 30px;
+  padding-left: 18px;
+}
+.mobile-page span input:focus {
+  border: 1px solid #3d9af7;
+}
+.mobile-page span img {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 4px;
+  left: 15px;
+}
+.mobile-page button {
+  color: #fff;
+  background-color: #3d9af7;
+  width: 100%;
+  margin-top: 20px;
+}
+.mobile-page button:hover, .mobile-page button:active, .mobile-page button:focus, .mobile-page button:visited {
+  color: #fff;
+}
+.mobile-page .meta-wrapper {
+  text-align: center;
+}
+.mobile-page .meta-wrapper p {
+  color: #60add8;
+  margin: 15px 10px 10px 0px;
+}
+.mobile-page .meta-wrapper p.bigger {
+  color: #1694ce;
+  font-size: 25px;
+  margin-top: -15px;
+}
