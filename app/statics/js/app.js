@@ -1,4 +1,4 @@
-angular.module('ngFancy', ['ngRoute', 'ui.bootstrap'])
+angular.module('ngFancy', ['ngRoute', 'ui.bootstrap', 'angular-loading-bar'])
   .config(['$routeProvider', function($routeProvider){
     $routeProvider
       .when('/', {
