@@ -15,6 +15,11 @@ gulp.task('clean', function(cb) {
   return del(['app/statics/css/*', 'dist'], cb);
 });
 
+gulp.task('webfont', function() {
+  return gulp.src(APP_ROOT + 'statics/fonts/*')
+    .pipe(gulp.dest(DIST_ROOT + 'statics/fonts'));
+});
+
 gulp.task('compass', function() {
   return gulp.src(APP_ROOT + 'statics/scss/*.scss')
     .pipe(compass({
@@ -24,7 +29,7 @@ gulp.task('compass', function() {
     }));
 });
 
-gulp.task('usemin', ['clean', 'compass', 'imagemin'], function() {
+gulp.task('usemin', ['clean', 'webfont', 'compass', 'imagemin'], function() {
   return gulp.src(APP_ROOT + '**/*.html')
     .pipe(usemin({
       //css: [minifyCss(), 'concat', rev()],
@@ -48,4 +53,4 @@ gulp.task('watch', function() {
   gulp.watch(APP_ROOT + 'statics/images/*', ['imagemin']);
 });
 
-gulp.task('default', ['usemin']);
+gulp.task('default', ['clean', 'usemin']);

@@ -1,0 +1,2 @@
+build:
+	gulp clean && gulp
