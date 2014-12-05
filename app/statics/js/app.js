@@ -12,5 +12,8 @@ angular.module('ngFancy', ['ngRoute', 'ngStorage', 'ui.bootstrap', 'angular-load
       .when('/mobile', {
         templateUrl: 'views/mobile.html',
         controller: 'MobileCtrl'
+      })
+      .when('/done', {
+        templateUrl: 'views/done.html'
       });
   }]);

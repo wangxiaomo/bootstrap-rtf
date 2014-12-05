@@ -76,7 +76,7 @@ angular.module('ngFancy')
           size: 'lg',
         });
       }else{
-        $localStorage['pics'] = pics;
+        $localStorage.pics = pics;
         $location.path('/mobile');
       }
     };

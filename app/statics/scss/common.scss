@@ -361,3 +361,53 @@ md-content {
     }
   }
 }
+
+/* done */
+.content-wrapper {
+  p, div {
+    text-align: center;
+    margin: 0px;
+  }
+
+  .bold {
+    color: #1694ce;
+    font-size: 20px;
+  }
+
+  .hd {
+    color: #000;
+    font-size: 28px;
+    padding: 5px;
+  }
+
+  .code-wrapper {
+    text-align: center;
+
+    .code {
+      width: 95%;
+      height: 63px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #d2d2d2;
+      background-color: #fafafa;
+    }
+  }
+
+  .meta {
+    margin-top: 20px;
+    text-align: center;
+
+    .btn-submit {
+      width: 95%;
+      padding: 10px;
+      margin-top: 20px;
+      color: #fff;
+      background-color: #1694ce;
+
+      &:hover, &:active, &:focus, &:visited {
+        color: #fff;
+      }
+    }
+  }
+}
+
