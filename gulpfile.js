@@ -27,9 +27,11 @@ gulp.task('compass', function() {
 gulp.task('usemin', ['clean', 'compass', 'imagemin'], function() {
   return gulp.src(APP_ROOT + '**/*.html')
     .pipe(usemin({
-      css: [minifyCss(), 'concat', rev()],
-      html: [minifyHtml({empty: true})],
-      js: [uglify(), rev()]
+      //css: [minifyCss(), 'concat', rev()],
+      //html: [minifyHtml({empty: true})],
+      //js: [uglify(), rev()]
+      css: ['concat', rev()],
+      js: [rev()]
     }))
     .pipe(gulp.dest(DIST_ROOT));
 });

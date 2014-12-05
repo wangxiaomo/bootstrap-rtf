@@ -133,7 +133,7 @@ footer {
 }
 
 .modal-header {
-  @include border-radius(4px);
+  @include border-top-radius(4px);
   background-color: #3d9af7;
 
   h3 {
@@ -146,6 +146,10 @@ footer {
 
   img {
     width: 50%;
+  }
+
+  img.img-large {
+    width: 90%;
   }
 
   .meta {

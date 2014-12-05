@@ -4,7 +4,7 @@
       <div class="card-wrapper">
         <div class="left-card">
           <img alt="车前方" src="./statics/images/p1.png" />
-          <button class="btn btn-show-big-sample">查看示例图</button>
+          <button class="btn btn-show-big-sample" ng-click="showBig(1)">查看示例图</button>
         </div>
         <div class="right-card">
           <div class="card-hd">
@@ -25,7 +25,7 @@
       <div class="card-wrapper">
         <div class="left-card">
           <img alt="车后方" src="./statics/images/p2.png" />
-          <button class="btn btn-show-big-sample">查看示例图</button>
+          <button class="btn btn-show-big-sample" ng-click="showBig(2)">查看示例图</button>
         </div>
         <div class="right-card">
           <div class="card-hd">
@@ -46,7 +46,7 @@
       <div class="card-wrapper">
         <div class="left-card">
           <img alt="车侧面" src="./statics/images/p3.png" />
-          <button class="btn btn-show-big-sample">查看示例图</button>
+          <button class="btn btn-show-big-sample" ng-click="showBig(3)">查看示例图</button>
         </div>
         <div class="right-card">
           <div class="card-hd">
@@ -68,4 +68,15 @@
     <p>提示：如需取证更多照片，可用手机自行拍照并保存</p>
     <button class="btn btn-upload">上传照片</button>
   </div>
+  <script type="text/ng-template" id="modal-alert">
+    <div class="modal-header">
+      <h3 class="modal-title">查看</h3>
+    </div>
+    <div class="modal-body">
+      <img class="img-large" src="{{ modalImgSrc }}" alt="img" />
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-goback" ng-click="dismiss()">返回</button>
+    </div>
+  </script>
 </div>
