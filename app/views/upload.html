@@ -1,1 +1,71 @@
-Upload
+<div ng-controller="UploadCtrl">
+  <md-content>
+    <md-card>
+      <div class="card-wrapper">
+        <div class="left-card">
+          <img alt="车前方" src="./statics/images/p1.png" />
+          <button class="btn btn-show-big-sample">查看示例图</button>
+        </div>
+        <div class="right-card">
+          <div class="card-hd">
+            <span class="left-hd">要求说明</span>
+            <span class="right-hd">照片1</span>
+          </div>
+          <div class="card-bd">
+            <p>前车前方5米处拍前景</p>
+            <div class="btn-groups">
+              <button class="btn btn-snap-photo"><img alt="snap" src="./statics/images/snap.png" />拍照</button>
+              <button class="btn btn-resnap-photo"><img alt="resnap" src="./statics/images/resnap.png" />重拍</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-card>
+    <md-card>
+      <div class="card-wrapper">
+        <div class="left-card">
+          <img alt="车后方" src="./statics/images/p2.png" />
+          <button class="btn btn-show-big-sample">查看示例图</button>
+        </div>
+        <div class="right-card">
+          <div class="card-hd">
+            <span class="left-hd">要求说明</span>
+            <span class="right-hd">照片2</span>
+          </div>
+          <div class="card-bd">
+            <p>后车后方5米处拍后景</p>
+            <div class="btn-groups">
+              <button class="btn btn-snap-photo btn-disable"><img alt="snap" src="./statics/images/snap.png" />拍照</button>
+              <button class="btn btn-resnap-photo btn-disable"><img alt="resnap" src="./statics/images/resnap.png" />重拍</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-card>
+    <md-card>
+      <div class="card-wrapper">
+        <div class="left-card">
+          <img alt="车侧面" src="./statics/images/p3.png" />
+          <button class="btn btn-show-big-sample">查看示例图</button>
+        </div>
+        <div class="right-card">
+          <div class="card-hd">
+            <span class="left-hd">要求说明</span>
+            <span class="right-hd">照片3</span>
+          </div>
+          <div class="card-bd">
+            <p>中间侧面处拍碰撞部位</p>
+            <div class="btn-groups">
+              <button class="btn btn-snap-photo btn-disable"><img alt="snap" src="./statics/images/snap.png" />拍照</button>
+              <button class="btn btn-resnap-photo btn-disable"><img alt="resnap" src="./statics/images/resnap.png" />重拍</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-card>
+  </md-content>
+  <div class="upload-footer">
+    <p>提示：如需取证更多照片，可用手机自行拍照并保存</p>
+    <button class="btn btn-upload">上传照片</button>
+  </div>
+</div>

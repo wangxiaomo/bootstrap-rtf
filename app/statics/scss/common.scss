@@ -177,3 +177,100 @@ footer {
 .p-bold {
   font-size: 18px;
 }
+
+/* card style */
+md-content {
+  margin-top: 10px;
+}
+
+.card-wrapper {
+  height: 100px;
+
+  .left-card {
+    width: 30%;
+    float: left;
+
+    img {
+      width: 100%;
+    }
+
+    .btn-show-big-sample {
+      width: 100%;
+      padding: 0px;
+      margin-top: 5px;
+      color: #fff;
+      background-color: #39464a;
+    }
+  }
+
+  .right-card {
+    width: 70%;
+    float: left;
+    padding: 0px 20px;
+  }
+}
+
+.card-hd {
+  .left-hd {
+    color: #cfcece;
+  }
+  .right-hd {
+    float: right;
+  }
+}
+
+.card-bd {
+  p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+
+  .btn-groups {
+    width: 110%;
+  }
+
+  button {
+    position: relative;
+    @include border-radius(0px);
+    color: #fff;
+    width: 80px;
+    padding-left: 35px;
+  }
+
+  button img {
+    width: 30%;
+    position: absolute;
+    left: 8px;
+    top: 5px;
+  }
+
+  .btn-snap-photo {
+    background-color: #3d9af7;
+  }
+
+  .btn-resnap-photo {
+    background-color: #fb7171;
+  }
+
+  .btn-disable {
+    background-color: #cacaca;
+  }
+}
+
+.upload-footer {
+  text-align: center;
+
+  p {
+    color: #626262;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  .btn-upload {
+    width: 95%;
+    color: #fff;
+    background-color: #3d9af7;
+    padding: 10px;
+  }
+}
