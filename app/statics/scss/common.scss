@@ -241,7 +241,7 @@ md-content {
     width: 80px;
     padding-left: 35px;
 
-    &:hover {
+    &:hover, &:active, &:visited {
       color: #fff;
     }
   }
