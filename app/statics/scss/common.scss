@@ -236,6 +236,10 @@ md-content {
     color: #fff;
     width: 80px;
     padding-left: 35px;
+
+    &:hover {
+      color: #fff;
+    }
   }
 
   button img {

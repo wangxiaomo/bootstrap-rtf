@@ -224,6 +224,9 @@ md-content {
   width: 80px;
   padding-left: 35px;
 }
+.card-bd button:hover {
+  color: #fff;
+}
 .card-bd button img {
   width: 30%;
   position: absolute;
