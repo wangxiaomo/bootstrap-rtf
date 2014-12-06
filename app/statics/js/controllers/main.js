@@ -17,6 +17,10 @@ angular.module('ngFancy')
       });
     };
 
+    $scope.goHash = function (hash) {
+      $location.path(hash);
+    };
+
     $scope.go = function () {
       var cntHour = getHour();
       if(cntHour < 7 || cntHour > 20){

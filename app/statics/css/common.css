@@ -279,6 +279,11 @@ md-content {
   width: 100%;
   height: 75px;
 }
+.card-wrapper .left-card img.round-conner {
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
 .card-wrapper .left-card .btn-show-big-sample {
   width: 100%;
   padding: 0px;
@@ -290,6 +295,23 @@ md-content {
   width: 70%;
   float: left;
   padding: 0px 20px;
+}
+.card-wrapper .right-card .hd-result {
+  line-height: 1.4;
+  font-size: 14px;
+}
+.card-wrapper .right-card .hd-faild {
+  color: red;
+}
+.card-wrapper .right-card .hd-success {
+  color: #0da814;
+}
+.card-wrapper .right-card .hd-addr {
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+.card-wrapper .right-card .hd-date {
+  font-weight: bold;
 }
 
 .card-hd .left-hd {
@@ -454,4 +476,64 @@ md-content {
 }
 .content-wrapper .meta .btn-submit:hover, .content-wrapper .meta .btn-submit:active, .content-wrapper .meta .btn-submit:focus, .content-wrapper .meta .btn-submit:visited {
   color: #fff;
+}
+
+/* list page */
+.list-search-wrapper {
+  width: 95%;
+  margin: auto;
+}
+.list-search-wrapper p {
+  font-size: 16px;
+  color: #347fcb;
+}
+.list-search-wrapper .meta {
+  margin-top: 10px;
+}
+.list-search-wrapper .search input {
+  width: 70%;
+  height: 30px;
+  margin-left: 1px;
+}
+.list-search-wrapper .search button {
+  height: 30px;
+  padding: 4px 12px;
+  margin-top: -2px;
+  margin-left: -5px;
+  color: #fff;
+  background-color: #6bb1f6;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+/* detail page */
+.detail-wrapper {
+  background-color: #ededed;
+}
+.detail-wrapper .detail-image-wrapper {
+  text-align: center;
+  background-color: #fff;
+}
+.detail-wrapper .detail-image-wrapper img {
+  width: 30%;
+  margin: 5% 1%;
+}
+.detail-wrapper .content span {
+  display: block;
+  padding: 10px 5%;
+  font-size: 18px;
+}
+.detail-wrapper .content .data-span {
+  color: #000;
+  background-color: #fff;
+}
+.detail-wrapper .content .btn-call {
+  padding: 6px 20px;
+  color: #fff;
+  background-color: #1694ce;
+  margin-left: 20px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
 }

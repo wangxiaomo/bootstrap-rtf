@@ -1,0 +1,19 @@
+<div class="detail-wrapper" ng-controller="DetailCtrl">
+  <div class="detail-image-wrapper">
+    <img alt="event detail img" src="http://www.sxgajj.gov.cn{{ p.thumb }}" ng-repeat="p in event.pics" />
+  </div>
+  <div class="content">
+    <span>事故日期:</span>
+    <span class="data-span">2014年9月3日</span>
+    <span>事故地点:</span>
+    <span class="data-span">山西省太原市迎泽区</span>
+    <span>事故编码:</span>
+    <span class="data-span">{{ event.id }}</span>
+    <span>处理单位:</span>
+    <span class="data-span">xxx事故快处中心</span>
+    <span>电话:</span>
+    <span class="data-span">15296615321<a class="btn btn-call" href="tel:15296615321">拨号</a></span>
+    <span>处理状态:</span>
+    <span class="data-span">未处理</span>
+  </div>
+</div>

@@ -14,6 +14,15 @@ angular.module('ngFancy', ['ngRoute', 'ngStorage', 'ui.bootstrap', 'angular-load
         controller: 'MobileCtrl'
       })
       .when('/done', {
-        templateUrl: 'views/done.html'
+        templateUrl: 'views/done.html',
+        controller: 'DoneCtrl'
+      })
+      .when('/list', {
+        templateUrl: 'views/list.html',
+        controller: 'ListCtrl'
+      })
+      .when('/detail/:eventID', {
+        templateUrl: 'views/detail.html',
+        controller: 'DetailCtrl'
       });
   }]);

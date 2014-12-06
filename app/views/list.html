@@ -1,0 +1,25 @@
+<div class="list-wrapper" ng-controller="ListCtrl">
+  <div class="list-search-wrapper">
+    <p class="meta">以下是您的轻微事故历史纪录，请点击查看</p>
+    <div class="search">
+      <input type="text" />
+      <button class="btn btn-search">查询</button>
+    </div>
+  </div>
+
+  <md-content>
+    <md-card ng-if="events.length == 0">
+      暂时没有相关信息
+    </md-card>
+    <md-card ng-repeat="event in events">
+      <div class="card-wrapper" ng-click="showDetail(event.id)">
+        <div class="left-card"><img class="round-conner" src="http://www.sxgajj.gov.cn{{ event.pics[0].thumb }}" alt="event img" /></div>
+        <div class="right-card">
+          <p class="hd-result hd-faild">已提交，请前<br />往事故快速处理中心处理</p>
+          <p class="hd-addr">太原市迎泽区桃园南路59号</p>
+          <p class="hd-date">2014年9月2日</p>
+        </div>
+      </div>
+    </md-card>
+  </md-content
+</div>
