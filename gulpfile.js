@@ -4,10 +4,9 @@ var APP_ROOT = './app/',
 var gulp = require('gulp'),
     usemin = require('gulp-usemin'),
     compass = require('gulp-compass'),
-    uglify = require('gulp-uglify'),
-    minifyHtml = require('gulp-minify-html'),
-    minifyCss = require('gulp-minify-css'),
     imagemin = require('gulp-imagemin'),
+    livereload = require('gulp-livereload'),
+    serveStatic = require('serve-static'),
     rev = require('gulp-rev'),
     del = require('del');
 
@@ -32,13 +31,15 @@ gulp.task('compass', function() {
 gulp.task('usemin', ['clean', 'webfont', 'compass', 'imagemin'], function() {
   return gulp.src(APP_ROOT + '**/*.html')
     .pipe(usemin({
-      //css: [minifyCss(), 'concat', rev()],
-      //html: [minifyHtml({empty: true})],
-      //js: [uglify(), rev()]
       css: ['concat', rev()],
       js: [rev()]
     }))
     .pipe(gulp.dest(DIST_ROOT));
+});
+
+gulp.task('sync', ['usemin'], function(){
+  return gulp.src(APP_ROOT + '**')
+    .pipe(livereload());
 });
 
 gulp.task('imagemin', function() {
@@ -47,9 +48,16 @@ gulp.task('imagemin', function() {
     .pipe(gulp.dest(DIST_ROOT + 'statics/images'))
 });
 
-gulp.task('watch', function() {
-  gulp.watch(APP_ROOT + '**/*.html', ['usemin']);
-  gulp.watch(APP_ROOT + 'statics/scss/*.scss', ['compass', 'usemin']);
+gulp.task('server', function(next) {
+  var connect = require('connect'),
+      server = connect();
+  server.use(serveStatic('.')).listen(8000, next);
+});
+
+gulp.task('watch', ['server'], function() {
+  livereload.listen()
+  gulp.watch(APP_ROOT + '**/*.html', ['usemin', 'sync']);
+  gulp.watch(APP_ROOT + 'statics/scss/*.scss', ['compass', 'usemin', 'sync']);
   gulp.watch(APP_ROOT + 'statics/images/*', ['imagemin']);
 });
 
