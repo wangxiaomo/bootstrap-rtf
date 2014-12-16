@@ -74,7 +74,21 @@ footer {
 }
 
 .image-wrapper {
+  position: relative;
   text-align: center;
+  margin: 0px 5%;
+  padding-top: 20px;
+  border: 1px solid #bfbfbf;
+
+  span {
+    position: absolute;
+    display: block;
+    width: 100px;
+    top: -10px;
+    left: 34%;
+    background: #fff;
+    color: grey;
+  }
 
   img {
     width: 90%;
