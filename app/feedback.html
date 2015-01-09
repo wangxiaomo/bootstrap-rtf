@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" data-ng-app>
   <head>
     <title>服务反馈</title>
     <meta charset="utf8" />
@@ -8,10 +8,45 @@
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css" />
     <!-- endbuild -->
+    <!-- build:css static/css/common.css -->
+    <link rel="stylesheet" href="./static/css/common.css" />
+    <!-- endbuild -->
   </head>
   <body>
-
-  {{ 'yet' }}
+    <div class="hd">
+      <img src="./static/images/hd-logo.png" alt=""/>
+      <img src="./static/images/hd.png" alt=""/>
+    </div>
+    <div class="bd">
+      <div class="bd-banner">
+        <span class="feedback-pomo">服务反馈</span>
+      </div>
+      <div class="bd-content">
+        <form class="form-horizontal" method="POST" action="">
+          <div class="form-group">
+            <label for="feedbackType" class="form-label">选择反馈类别:</label>
+            <select name="feedbackType" class="form-control">
+              <option value="教学质量">教学质量</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name" class="form-label">姓&nbsp;&nbsp;名:</label>
+            <input type="text" name="name" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="tel" class="form-label">联系电话:</label>
+            <input type="tel" name="tel" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="detail" class="form-label">详细描述:</label>
+            <textarea name="detail" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-feedback">提交反馈</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
   <!-- build:js static/js/vendor.js -->
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>

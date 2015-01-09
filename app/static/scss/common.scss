@@ -1,0 +1,70 @@
+@import "compass/css3";
+
+// global variables
+//
+
+$furryBlue: #40d9d7;
+$furryBlueDarker: #00a4a5;
+$furryGrey: #eeeeee;
+
+body {
+  background: $furryGrey;
+}
+
+img {
+  width: 100%;
+}
+
+// feedback
+.bd-banner {
+  position: relative;
+  background: $furryBlue;
+  height: 35px;
+
+  .feedback-pomo {
+    display: block;
+    position: absolute;
+    left: 3%;
+    bottom: 0px;
+    width: 80px;
+    padding: 5px 10px;
+    background: #fff;
+    color: $furryBlue;
+    font-weight: bold;
+
+    @include border-top-radius(5px);
+  }
+}
+
+.bd-content {
+  background: #fff;
+  margin: 3%;
+
+  form {
+    padding: 10%;
+  }
+
+  .form-label {
+    display: block;
+    float: left;
+    width: 45%;
+    height: 30px;
+    padding: 5px;
+  }
+
+  .form-control {
+    width: 50%;
+  }
+
+  .btn-feedback {
+    background: $furryBlue;
+    color: #fff;
+    border: 0px;
+    margin-left: 50%;
+    @include box-shadow($furryBlueDarker 2px 2px);
+
+    &:hover {
+      @include opacity(0.8);
+    }
+  }
+}
