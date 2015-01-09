@@ -59,3 +59,36 @@ img {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
+
+md-card {
+  background: #fff;
+}
+md-card .card-hd {
+  font-weight: bold;
+}
+
+.team-card {
+  height: 150px;
+  border: 1px solid #e9e9e9;
+}
+.team-card img, .team-card .team-info {
+  float: left;
+}
+.team-card img {
+  width: 40%;
+  height: 80%;
+  margin: 5% 0px;
+  padding: 0px 2%;
+}
+.team-card .team-detail {
+  font-size: 10px;
+  line-height: 12px;
+}
+.team-card .team-hd {
+  font-weight: bold;
+  margin-top: 5%;
+  display: block;
+}
+.team-card .team-info {
+  width: 60%;
+}

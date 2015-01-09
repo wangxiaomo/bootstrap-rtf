@@ -2,15 +2,23 @@ var APP_ROOT = './app/',
     DIST_ROOT = './dist/';
 
 var gulp = require('gulp'),
+    gutil = require('gulp-util'),
     usemin = require('gulp-usemin'),
     compass = require('gulp-compass'),
+    coffee = require('gulp-coffee'),
     rename = require('gulp-rename'),
     rev = require('gulp-rev'),
     del = require('del');
 
 
 gulp.task('clean', function(cb) {
-  return del(['app/static/css/*', DIST_ROOT], cb);
+  return del(['app/static/css/*', 'app/static/js/*', DIST_ROOT], cb);
+});
+
+gulp.task('coffee', function() {
+  return gulp.src(APP_ROOT + 'static/coffee/*.coffee')
+    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(gulp.dest(APP_ROOT + 'static/js/'));
 });
 
 gulp.task('compass', function() {
@@ -22,9 +30,12 @@ gulp.task('compass', function() {
     }));
 });
 
-gulp.task('usemin', ['clean', 'compass'], function() {
+gulp.task('usemin', ['clean', 'compass', 'coffee'], function() {
   gulp.src(APP_ROOT + 'static/images/**')
     .pipe(gulp.dest(DIST_ROOT + 'static/images'));
+
+  gulp.src(APP_ROOT + 'static/fonts/**')
+    .pipe(gulp.dest(DIST_ROOT + 'static/fonts'));
 
   gulp.src(['./bower_components/**/*.map'])
     .pipe(rename({

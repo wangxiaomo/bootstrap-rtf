@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-ng-app="ngFurry">
+  <head>
+    <title>团队介绍</title>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <!-- build:css static/css/vendor.css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css" />
+    <!-- endbuild -->
+    <!-- build:css static/css/common.css -->
+    <link rel="stylesheet" href="./static/css/common.css" />
+    <!-- endbuild -->
+  </head>
+  <body>
+    <div class="hd">
+      <img src="./static/images/hd-logo.png" alt=""/>
+      <md-card>
+        <span class="card-hd">我们的优势</span>
+        <img src="./static/images/teams.png" alt=""/>
+      </md-card>
+    </div>
+
+    <md-card>
+      <span class="card-hd">师资力量</span>
+
+      <div class="team-card">
+        <img src="./static/images/team-photo.png" alt=""/>
+        <div class="team-info">
+          <div class="team-info-wrapper">
+            <span class="team-hd">钢琴主管 王虹艳</span>
+            <p class="team-detail">
+              澳门大学毕业，硕士研究生，参加过澳门政府网站的开发，做过多家公司的项目经理。
+            </p>
+          </div>
+          <div class="team-meta">
+            <div data-ng-init="rate=3"><rating data-ng-model="rate" max="5" readonly="true"></rating></div>
+            <span>共有243190人在学</span>
+            <button class="btn btn-primary btn-show-team">查看星冉讲师团队</button>
+          </div>
+        </div>
+      </div>
+    </md-card>
+
+  <!-- build:js static/js/vendor.js -->
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="../bower_components/angular-material/angular-material.min.js"></script>
+  <!-- endbuild -->
+ 
+  <!-- build:js static/js/app.js -->
+  <script src="./static/js/app.js"></script>
+  <!-- endbuild -->
+  </body>
+</html>
