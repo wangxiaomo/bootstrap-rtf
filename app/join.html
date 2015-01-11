@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-ng-app>
+  <head>
+    <title>加盟星冉</title>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <!-- build:css static/css/vendor.css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css" />
+    <!-- endbuild -->
+    <!-- build:css static/css/common.css -->
+    <link rel="stylesheet" href="./static/css/common.css" />
+    <!-- endbuild -->
+  </head>
+  <body>
+    <div class="hd">
+      <img src="./static/images/hd-logo.png" alt=""/>
+      <img src="./static/images/hd.png" alt=""/>
+    </div>
+
+    <div class="bd">
+      <div class="bd-banner">
+        <span class="feedback-pomo">加盟星冉</span>
+      </div>
+      <div class="bd-content">
+        <img src="./static/images/join-us.png" alt=""/>
+        <p class="grey-label">加盟流程</p>
+        <img src="./static/images/join-us-detail.png" alt=""/>
+        <p class="grey-label">公益申请</p>
+        <form class="form-horizontal" method="POST" action="">
+          <div class="form-group">
+            <label for="name" class="form-label">联系人:</label>
+            <input type="text" name="name" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="tel" class="form-label">联系电话:</label>
+            <input type="tel" name="tel" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="loc" class="form-label">所在地区:</label>
+            <input type="text" name="loc" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="feature" class="form-label">加盟者有何特长:</label>
+            <input type="text" name="feature" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="detail" class="form-label">加盟者有何见解:</label>
+            <textarea name="detail" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-feedback">立即申请</button>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+
+
+  <!-- build:js static/js/vendor.js -->
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="../bower_components/angular-material/angular-material.min.js"></script>
+  <!-- endbuild -->
+ 
+  <!-- build:js static/js/app.js -->
+  <script src="./static/js/source.js"></script>
+  <script src="./static/js/app.js"></script>
+  <!-- endbuild -->
+  </body>
+</html>
