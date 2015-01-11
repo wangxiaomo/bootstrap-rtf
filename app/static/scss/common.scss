@@ -81,6 +81,7 @@ md-card {
 .team-card {
   height: 150px;
   border: 1px solid #e9e9e9;
+  margin: 10px 0px;
 
   img, .team-info {
     float: left;
@@ -96,6 +97,29 @@ md-card {
   .team-detail {
     font-size: 10px;
     line-height: 12px;
+    margin-top: 5px;
+  }
+
+  .team-info {
+    position: relative;
+    height: 135px;
+  }
+
+  .team-meta {
+    position: absolute;
+    bottom: 0px;
+    font-size: 10px;
+
+    span {
+      display: block;
+      margin-top: -4px;
+    }
+
+    button {
+      padding: 3px 12px;
+      background-color: #77be5e;
+      border: none;
+    }
   }
 
   .team-hd {
