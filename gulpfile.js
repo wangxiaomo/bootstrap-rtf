@@ -16,7 +16,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('coffee', function() {
-  return gulp.src(APP_ROOT + 'static/coffee/*.coffee')
+  return gulp.src(APP_ROOT + 'static/coffee/**/*.coffee')
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest(APP_ROOT + 'static/js/'));
 });

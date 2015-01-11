@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./static/css/common.css" />
     <!-- endbuild -->
   </head>
-  <body>
+  <body data-ng-controller="TeamController">
     <div class="page1">
       <div class="hd">
         <img src="./static/images/hd-logo.png" alt=""/>
@@ -37,7 +37,7 @@
             <div class="team-meta">
               <div data-ng-init="rate=3"><rating data-ng-model="rate" max="5" readonly="true"></rating></div>
               <span>共有243190人在学</span>
-              <button class="btn btn-primary btn-show-team">查看星冉讲师团队</button>
+              <button class="btn btn-primary btn-show-team" data-ng-click="showDetail(1)">查看星冉讲师团队</button>
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@
             <div class="team-meta">
               <div data-ng-init="rate=3"><rating data-ng-model="rate" max="5" readonly="true"></rating></div>
               <span>共有243190人在学</span>
-              <button class="btn btn-primary btn-show-team">查看星冉讲师团队</button>
+              <button class="btn btn-primary btn-show-team" data-ng-click="showDetail(2)">查看星冉讲师团队</button>
             </div>
           </div>
         </div>
