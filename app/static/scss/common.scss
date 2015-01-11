@@ -136,3 +136,29 @@ md-card {
     width: 60%;
   }
 }
+
+// groups
+.group-card {
+  width: 95%;
+  height: 190px;
+  padding: 3%;
+  margin: 10px auto;
+  border: 1px solid #e9e9e9;
+  background: #fff;
+
+  img {
+    width: 100%;
+  }
+
+  .group-hd {
+    font-weight: bold;
+    margin-top: 5%;
+    display: block;
+  }
+
+  .group-detail {
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 10px;
+  }
+}
