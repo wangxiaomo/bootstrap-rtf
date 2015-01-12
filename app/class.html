@@ -14,7 +14,7 @@
     <!-- endbuild -->
   </head>
   <body data-ng-controller="ClassController">
-    <div class="page1">
+    <div class="page2">
       <div class="hd">
         <img src="./static/images/hd-logo.png" alt=""/>
         <md-card class="search-card">
@@ -37,14 +37,14 @@
             <span>教学方式</span>
             <span>费用</span>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-id="3">
             <span>周末</span>
             <span>星冉钢琴培训班</span>
             <span>成人</span>
             <span>40人大班</span>
             <span>39</span>
           </div>
-          <div class="class-item">
+          <div class="class-item" data-id="4">
             <span>周末</span>
             <span>星冉钢琴培训班</span>
             <span>成人</span>
@@ -52,6 +52,35 @@
             <span>39</span>
           </div>
         </md-card>
+      </div>
+    </div>
+    <div class="page1">
+      <div class="hd">
+        <img src="./static/images/hd-logo.png" alt=""/>
+        <img src="./static/images/hd.png" alt=""/>
+      </div>
+      <div class="bd">
+        <div class="bd-banner">
+          <span class="bd-banner-menu active" data-content-tab="最新活动" data-ng-click="showContentTab('最新活动')">最新活动</span>
+          <span class="bd-banner-menu" data-content-tab="课程特色" data-ng-click="showContentTab('课程特色')">课程特色</span>
+          <span class="bd-banner-menu" data-content-tab="课程表" data-ng-click="showContentTab('课程表')">课程表</span>
+          <span class="bd-banner-menu" data-content-tab="报名流程" data-ng-click="showContentTab('报名流程')">报名流程</span>
+        </div>
+        <div class="bd-content">
+          <div class="bd-content-tab active" data-content-tab="最新活动">
+            <span class="title">最新活动</span>
+            <p class="meta">XXXX</p>
+          </div>
+          <div class="bd-content-tab" data-content-tab="课程特色">
+            课程特色
+          </div>
+          <div class="bd-content-tab" data-content-tab="课程表">
+            课程表
+          </div>
+          <div class="bd-content-tab" data-content-tab="报名流程">
+            报名流程
+          </div>
+        </div>
       </div>
     </div>
 

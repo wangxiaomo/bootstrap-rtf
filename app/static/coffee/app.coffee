@@ -50,3 +50,8 @@ ngFurry.controller 'ClassController', ($scope, $compile) ->
     $('.cnt-search-token').text($scope.choices.join('+'))
     console.log $scope.conditions
     return
+
+  $scope.showContentTab = (tab) ->
+    $('.bd-banner-menu, .bd-content-tab').removeClass 'active'
+    $('.bd-banner-menu[data-content-tab=' + tab + '], .bd-content-tab[data-content-tab=' + tab + ']').addClass 'active'
+    return

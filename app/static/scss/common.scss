@@ -7,6 +7,29 @@ $furryBlue: #40d9d7;
 $furryBlueDarker: #00a4a5;
 $furryGrey: #eeeeee;
 
+// global mixins
+@mixin banner-menu-active {
+  color: $furryBlue;
+  background-color: #fff;
+  @include border-top-radius(5px);
+}
+
+@mixin banner-menu {
+  display: block;
+  float: left;
+  width: 80px;
+  padding: 5px 10px;
+  margin-top: 2%;
+  font-weight: bold;
+  color: #fff;
+  background-color: $furryBlue;
+  text-align: center;
+
+  &.active, &:hover {
+    @include banner-menu-active;
+  }
+}
+
 body {
   background: $furryGrey;
 }
@@ -17,22 +40,15 @@ img {
 
 // feedback
 .bd-banner {
-  position: relative;
   background: $furryBlue;
   height: 35px;
 
-  .feedback-pomo {
-    display: block;
-    position: absolute;
-    left: 3%;
-    bottom: 0px;
-    width: 80px;
-    padding: 5px 10px;
-    background: #fff;
-    color: $furryBlue;
-    font-weight: bold;
+  .feedback-pomo, .bd-banner-menu {
+    @include banner-menu;
+  }
 
-    @include border-top-radius(5px);
+  .feedback-pomo {
+    @include banner-menu-active;
   }
 }
 
@@ -308,6 +324,25 @@ md-card {
       width: 20%;
       text-align: center;
       line-height: 12px;
+    }
+  }
+}
+
+.bd-content {
+  .bd-content-tab {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    .title {
+      border-left: 5px solid #ffc15c;
+      padding: 10px 15px;
+      font-weight: bold;
+      font-size: 15px;
+      display: block;
+      margin-bottom: 10px;
     }
   }
 }
