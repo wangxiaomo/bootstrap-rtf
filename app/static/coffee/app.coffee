@@ -39,6 +39,7 @@ ngFurry.controller 'ClassController', ($scope, $compile) ->
   $scope.showOptions = (category) ->
     options = FURRY_SOURCE_MAP.class_categories[category]
     $('.search-token').html $compile(_.map(options, renderChoice).join(''))($scope)
+    $('.search-token').show()
 
     $('.custom-search span').removeClass 'active'
     $('.custom-search span[data-category=' + category + ']').addClass 'active'

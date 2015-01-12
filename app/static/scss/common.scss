@@ -242,8 +242,9 @@ md-card {
 }
 
 .search-token {
+  display: none;
   height: 40px;
-  padding: 5% 0px;
+  padding: 3% 0px;
 
   span {
     display: inline-block;
@@ -261,4 +262,52 @@ md-card {
 
 .cnt-search-token {
   color: red;
+}
+
+.class-card {
+  padding: 0px;
+
+  .class-card-hd {
+    background-color: $furryBlue;
+    text-align: center;
+    height: 40px;
+    padding-left: 2%;
+
+    span {
+      display: block;
+      float: left;
+      width: 20%;
+      margin: 10px 0px;
+      color: #fff;
+      border-right: 1px solid #fff;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  .class-item {
+    font-size: 10px;
+    background-color: #fff;
+    height: 40px;
+    padding: 10px 0px;
+    overflow: hidden;
+
+    &:nth-child(2) {
+      background-color: $furryGrey;
+    }
+
+    &:hover {
+      background-color: #f5ebdf;
+    }
+
+    span {
+      display: block;
+      float: left;
+      width: 20%;
+      text-align: center;
+      line-height: 12px;
+    }
+  }
 }
