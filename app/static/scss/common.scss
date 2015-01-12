@@ -162,6 +162,7 @@ md-card {
     margin-top: 10px;
   }
 }
+
 // join us
 .bd-content {
   .grey-label {
@@ -170,4 +171,40 @@ md-card {
     margin: 10px 0px;
     padding: 10px;
   }
+}
+
+// award
+.one-award {
+  width: 48%;
+  float: left;
+  padding: 3%;
+  margin: 1%;
+  background: $furryGrey;
+  font-size: 10px;
+
+  img {
+    width: 100%;
+  }
+
+  .award-hd {
+
+    span {
+      display: block;
+    }
+
+    .award-title {
+      font-weight: bold;
+      font-size: 15px;
+      padding: 5px 0px;
+    }
+  }
+
+  .award-meta {
+    border-top: 1px solid #fff;
+  }
+}
+
+.bd-content-award {
+  background-color: #fff;
+  min-height: 450px;
 }
