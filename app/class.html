@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en" data-ng-app>
+<html lang="en" data-ng-app="ngFurry">
   <head>
-    <title>合作团体</title>
+    <title>课程安排</title>
     <meta charset="utf8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <!-- build:css static/css/vendor.css -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css" />
@@ -12,35 +13,22 @@
     <link rel="stylesheet" href="./static/css/common.css" />
     <!-- endbuild -->
   </head>
-  <body>
-    <div class="hd">
-      <img src="./static/images/hd-logo.png" alt=""/>
-      <img src="./static/images/hd.png" alt=""/>
-    </div>
-
-    <div class="bd">
-      <div class="bd-banner">
-        <span class="feedback-pomo">合作团体</span>
-      </div>
-
-      <div class="group-card">
-        <img src="./static/images/group.png" alt=""/>
-        <div class="group-info">
-          <span class="group-hd">钢琴主管 王虹艳</span>
-          <p class="group-detail">
-            澳门大学毕业，硕士研究生，参加过澳门政府网站的开发，做过多家公司的项目经理。
-          </p>
-        </div>
-      </div>
-
-      <div class="group-card">
-        <img src="./static/images/group.png" alt=""/>
-        <div class="group-info">
-          <span class="group-hd">钢琴主管 王虹艳</span>
-          <p class="group-detail">
-            澳门大学毕业，硕士研究生，参加过澳门政府网站的开发，做过多家公司的项目经理。
-          </p>
-        </div>
+  <body data-ng-controller="ClassController">
+    <div class="page1">
+      <div class="hd">
+        <img src="./static/images/hd-logo.png" alt=""/>
+        <md-card class="search-card">
+          <span class="card-hd">课程安排</span>
+          <div class="custom-search">
+            <span data-category="类别" data-ng-click="showOptions('类别')"><i class="fa fa-search"></i>类别</span>
+            <span data-category="价格" data-ng-click="showOptions('价格')"><i class="fa fa-search"></i>价格</span>
+            <span data-category="方向" data-ng-click="showOptions('方向')"><i class="fa fa-search"></i>方向</span>
+            <span data-category="方式" data-ng-click="showOptions('方式')"><i class="fa fa-search"></i>方式</span>
+            <span data-category="时间" data-ng-click="showOptions('时间')"><i class="fa fa-search"></i>时间</span>
+          </div>
+          <div class="search-token"></div>
+          <div class="cnt-search-token">无搜索条件</div>
+        </md-card>
       </div>
     </div>
 

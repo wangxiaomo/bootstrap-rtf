@@ -208,3 +208,57 @@ md-card {
   background-color: #fff;
   min-height: 450px;
 }
+
+// class
+.custom-search {
+  margin-top: 10px;
+  height: 65px;
+
+  span {
+    display: inline-block;
+    width: 20%;
+    float: left;
+    text-align: center;
+    color: #000;
+
+    i {
+      color: #f77e15;
+    }
+
+    &:hover, &.active {
+      color: #fff;
+      background-color: #ffc15c;
+
+      i {
+        color: #fff;
+      }
+    }
+  }
+
+  i {
+    display: block;
+    font-size: 40px;
+  }
+}
+
+.search-token {
+  height: 40px;
+  padding: 5% 0px;
+
+  span {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+    margin: 0px 1px;
+
+    &:hover, &.active {
+      color: #fff;
+      background-color: #f77e15;
+    }
+  }
+}
+
+.cnt-search-token {
+  color: red;
+}
