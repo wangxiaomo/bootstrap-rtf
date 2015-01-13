@@ -1,7 +1,8 @@
 window.FURRY_SOURCE_MAP =
+  api_url: 'http://w41742077.081818.com/xing/index.php?g=Api'
   class_categories:
-    '类别': ['钢琴', '二胡', '小提琴', '萨克斯', '大提琴']
-    '价格': ['0-2000', '2000-3000', '3000以上']
-    '方向': ['启蒙教育', '成人教育', '考级教育', '高考教育']
-    '方式': ['一对一', '10人小班', '20人中班', '30人大班']
-    '时间': ['工作日白', '工作日晚', '周末']
+    '类别': 'training_options'
+    '价格': 'price_options'
+    '方向': 'direction_options'
+    '方式': 'teaching_options'
+    '时间': 'teaching_time_options'

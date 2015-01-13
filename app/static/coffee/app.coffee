@@ -1,5 +1,15 @@
 ngFurry = angular.module 'ngFurry', ['ui.bootstrap']
 
+ngFurry.controller 'FeedbackController', ($scope) ->
+  options = FURRY_SERVER_OPTIONS.feedback_options
+  _.map options, (v) ->
+    $('select').append "<option value='#{v}'>#{v}</option>"
+
+ngFurry.controller 'RequestController', ($scope) ->
+  options = FURRY_SERVER_OPTIONS.request_options
+  _.map options, (v) ->
+    $('select').append "<option value='#{v}'>#{v}</option>"
+
 ngFurry.controller 'TeamController', ($scope) ->
   $scope.showDetail = (id) ->
     $('.page1').hide()
@@ -37,7 +47,7 @@ ngFurry.controller 'ClassController', ($scope, $compile) ->
       $scope.conditions[category] = _.filter($scope.conditions[category], (v) -> choice != v)
 
   $scope.showOptions = (category) ->
-    options = FURRY_SOURCE_MAP.class_categories[category]
+    options = FURRY_SERVER_OPTIONS[FURRY_SOURCE_MAP.class_categories[category]]
     $('.search-token').html $compile(_.map(options, renderChoice).join(''))($scope)
     $('.search-token').show()
 
