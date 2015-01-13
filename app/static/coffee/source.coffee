@@ -1,5 +1,5 @@
 window.FURRY_SOURCE_MAP =
-  api_url: 'http://w41742077.081818.com/xing/index.php?g=Api'
+  api_url: 'http://w41742077.081818.com/xing/index.php?g=Api&m=wechat&a='
   class_categories:
     '类别': 'training_options'
     '价格': 'price_options'

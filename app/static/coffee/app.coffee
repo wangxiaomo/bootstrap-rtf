@@ -1,9 +1,34 @@
 ngFurry = angular.module 'ngFurry', ['ui.bootstrap']
 
-ngFurry.controller 'FeedbackController', ($scope) ->
+ngFurry.service 'APIEngine', ($http) ->
+  @postFeedback = (feedbackType, name, tel, detail) ->
+    $http.post FURRY_SOURCE_MAP.api_url + 'feedback', {
+        feedbackType: feedbackType
+        name: name
+        tel: tel
+        detail: detail
+    }
+    .success (data) ->
+      console.log data
+  return @
+  
+
+ngFurry.controller 'FeedbackController', ($scope, APIEngine) ->
   options = FURRY_SERVER_OPTIONS.feedback_options
   _.map options, (v) ->
     $('select').append "<option value='#{v}'>#{v}</option>"
+
+  $scope.submit = ($e) ->
+    $e.preventDefault()
+    feedbackType = $('select').val()
+    name = $.trim($('input[name=name]').val())
+    tel = $.trim($('input[name=tel]').val())
+    detail = $.trim($('textarea').val())
+
+    if name and tel and tel.length == 11 and detail
+      APIEngine.postFeedback feedbackType, name, tel, detail
+    else
+      alert "请填写正确的信息"
 
 ngFurry.controller 'RequestController', ($scope) ->
   options = FURRY_SERVER_OPTIONS.request_options
