@@ -1,4 +1,4 @@
-ngFurry = angular.module 'ngFurry', ['ui.bootstrap']
+ngFurry = angular.module 'ngFurry', ['ui.bootstrap', 'angular.filter']
 
 ngFurry.filter 'cut', () ->
   return (value, max, tail) ->
@@ -142,8 +142,12 @@ ngFurry.controller 'GroupsController', ($scope) ->
 ngFurry.controller 'AwardsController', ($scope) ->
   $scope.awards = FURRY_AWARDS
 
-ngFurry.controller 'TeamController', ($scope) ->
-  $scope.showDetail = (id) ->
+ngFurry.controller 'TeamsController', ($scope) ->
+  $scope.teams = FURRY_TEAMS
+
+  $scope.showDetail = (major) ->
+    $scope.majorTeams = FURRY_TEAMS[major]['teams']
+
     $('.page1').hide()
     $('.page2').show()
     return
