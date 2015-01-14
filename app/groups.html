@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="./static/css/common.css" />
     <!-- endbuild -->
     <script src="/index.php?g=Api&m=wechat&a=get_system_options"></script>
+    <script src="/index.php?g=Api&m=wechat&a=get_groups"></script>
   </head>
-  <body>
+  <body data-ng-controller="GroupsController">
     <div class="hd">
       <img src="./static/images/hd-logo.png" alt=""/>
       <img src="./static/images/hd.png" alt=""/>
@@ -24,22 +25,12 @@
         <span class="feedback-pomo">合作团体</span>
       </div>
 
-      <div class="group-card">
-        <img src="./static/images/group.png" alt=""/>
+      <div class="group-card" data-ng-repeat="group in groups">
+        <img src="http://w41742077.081818.com{{ group.thumb }}" alt=""/>
         <div class="group-info">
-          <span class="group-hd">钢琴主管 王虹艳</span>
+          <span class="group-hd">{{ group.title }}</span>
           <p class="group-detail">
-            澳门大学毕业，硕士研究生，参加过澳门政府网站的开发，做过多家公司的项目经理。
-          </p>
-        </div>
-      </div>
-
-      <div class="group-card">
-        <img src="./static/images/group.png" alt=""/>
-        <div class="group-info">
-          <span class="group-hd">钢琴主管 王虹艳</span>
-          <p class="group-detail">
-            澳门大学毕业，硕士研究生，参加过澳门政府网站的开发，做过多家公司的项目经理。
+            {{ group.description | cut:100 }}
           </p>
         </div>
       </div>

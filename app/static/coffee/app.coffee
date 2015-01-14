@@ -1,5 +1,19 @@
 ngFurry = angular.module 'ngFurry', ['ui.bootstrap']
 
+ngFurry.filter 'cut', () ->
+  return (value, max, tail) ->
+    return '' if not value
+
+    max = parseInt max, 10
+    return value if not max or value.length <= max
+
+    value = value.substr 0, max
+    lastspace = value.lastIndexOf ' '
+    if lastspace != -1
+      value = value.substr 0, lastspace
+
+    return value + (tail || ' ...')
+
 ngFurry.service 'APIEngine', ($http, $q) ->
   @postFeedback = (feedbackType, name, tel, detail) ->
     deferred = $q.defer()
@@ -121,6 +135,9 @@ ngFurry.controller 'JoinController', ($scope, APIEngine) ->
             alert "申请成功"
             $('input, textarea').val('')
             return
+
+ngFurry.controller 'GroupsController', ($scope) ->
+  $scope.groups = FURRY_GROUPS
 
 ngFurry.controller 'TeamController', ($scope) ->
   $scope.showDetail = (id) ->
