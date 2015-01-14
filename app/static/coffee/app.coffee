@@ -27,6 +27,19 @@ ngFurry.service 'APIEngine', ($http, $q) ->
       deferred.resolve data
     return deferred.promise
 
+  @join = (name, tel, loc, feature, detail) ->
+    deferred = $q.defer()
+    $http.post FURRY_SOURCE_MAP.api_url + 'join', {
+      name: name
+      tel: tel
+      loc: loc
+      feature: feature
+      detail: detail
+    }
+    .success (data) ->
+      deferred.resolve data
+    return deferred.promise
+
   return @
   
 
@@ -82,6 +95,30 @@ ngFurry.controller 'RequestController', ($scope, APIEngine) ->
         APIEngine.request requestType, name, age, feature, tel, detail
           .then (data) ->
             alert "报名成功"
+            $('input, textarea').val('')
+            return
+
+ngFurry.controller 'JoinController', ($scope, APIEngine) ->
+  $scope.submit = ($e) ->
+    $e.preventDefault()
+    isInvalid = false
+    $.verify {
+      prompt: (element, text) ->
+        if not isInvalid and not _.isNull(text)
+          isInvalid = true
+          alert $(element).data('msg')
+    }
+    $('form').validate ()->
+      if not isInvalid
+        name = $.trim($('input[name=name]').val())
+        tel = $.trim($('input[name=tel]').val())
+        loc = $.trim($('input[name=loc]').val())
+        feature = $.trim($('input[name=feature]').val())
+        detail = $.trim($('textarea').val())
+
+        APIEngine.join name, tel, loc, feature, detail
+          .then (data) ->
+            alert "申请成功"
             $('input, textarea').val('')
             return
 

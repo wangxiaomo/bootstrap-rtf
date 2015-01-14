@@ -13,7 +13,7 @@
     <!-- endbuild -->
     <script src="/index.php?g=Api&m=wechat&a=get_system_options"></script>
   </head>
-  <body>
+  <body data-ng-controller="JoinController">
     <div class="hd">
       <img src="./static/images/hd-logo.png" alt=""/>
       <img src="./static/images/hd.png" alt=""/>
@@ -31,26 +31,26 @@
         <form class="form-horizontal" method="POST" action="">
           <div class="form-group">
             <label for="name" class="form-label">联系人:</label>
-            <input type="text" name="name" class="form-control" />
+            <input type="text" name="name" class="form-control" data-validate="required" data-msg="请正确填写姓名" />
           </div>
           <div class="form-group">
             <label for="tel" class="form-label">联系电话:</label>
-            <input type="tel" name="tel" class="form-control" />
+            <input type="tel" name="tel" class="form-control" data-validate="required,number,size(11)" data-msg="请正确填写联系方式" />
           </div>
           <div class="form-group">
             <label for="loc" class="form-label">所在地区:</label>
-            <input type="text" name="loc" class="form-control" />
+            <input type="text" name="loc" class="form-control" data-validate="required" data-msg="请正确填写所在地区" />
           </div>
           <div class="form-group">
             <label for="feature" class="form-label">加盟者有何特长:</label>
-            <input type="text" name="feature" class="form-control" />
+            <input type="text" name="feature" class="form-control" data-validate="required" data-msg="请正确填写特长信息" />
           </div>
           <div class="form-group">
             <label for="detail" class="form-label">加盟者有何见解:</label>
-            <textarea name="detail" class="form-control"></textarea>
+            <textarea name="detail" class="form-control" data-validate="required" data-msg="请填写加盟见解" ></textarea>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary btn-feedback">立即申请</button>
+            <button class="btn btn-primary btn-feedback" data-ng-click="submit($event)">立即申请</button>
           </div>
         </form>
       </div>
