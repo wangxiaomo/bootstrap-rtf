@@ -12,6 +12,21 @@ ngFurry.service 'APIEngine', ($http, $q) ->
     .success (data) ->
       deferred.resolve data
     return deferred.promise
+
+  @request = (requestType, name, age, feature, tel, detail) ->
+    deferred = $q.defer()
+    $http.post FURRY_SOURCE_MAP.api_url + 'request', {
+      requestType: requestType
+      name: name
+      age: age
+      feature: feature
+      tel: tel
+      detail: detail
+    }
+    .success (data) ->
+      deferred.resolve data
+    return deferred.promise
+
   return @
   
 
@@ -22,24 +37,53 @@ ngFurry.controller 'FeedbackController', ($scope, APIEngine) ->
 
   $scope.submit = ($e) ->
     $e.preventDefault()
-    feedbackType = $('select').val()
-    name = $.trim($('input[name=name]').val())
-    tel = $.trim($('input[name=tel]').val())
-    detail = $.trim($('textarea').val())
+    isInvalid = false
+    $.verify {
+      prompt: (element, text) ->
+        if not isInvalid and not _.isNull(text)
+          isInvalid = true
+          alert $(element).data('msg')
+    }
+    $('form').validate ()->
+      if not isInvalid
+        feedbackType = $('select').val()
+        name = $.trim($('input[name=name]').val())
+        tel = $.trim($('input[name=tel]').val())
+        detail = $.trim($('textarea').val())
+        APIEngine.postFeedback feedbackType, name, tel, detail
+          .then (data) ->
+            alert "反馈成功"
+            $('input, textarea').val('')
+            return
 
-    if name and tel and tel.length == 11 and detail
-      APIEngine.postFeedback feedbackType, name, tel, detail
-        .then (data) ->
-          alert "反馈成功"
-          $('input, textarea').val('')
-          return
-    else
-      alert "请填写正确的信息"
-
-ngFurry.controller 'RequestController', ($scope) ->
+ngFurry.controller 'RequestController', ($scope, APIEngine) ->
   options = FURRY_SERVER_OPTIONS.request_options
   _.map options, (v) ->
     $('select').append "<option value='#{v}'>#{v}</option>"
+
+  $scope.submit = ($e) ->
+    $e.preventDefault()
+    isInvalid = false
+    $.verify {
+      prompt: (element, text) ->
+        if not isInvalid and not _.isNull(text)
+          isInvalid = true
+          alert $(element).data('msg')
+    }
+    $('form').validate ()->
+      if not isInvalid
+        requestType = $('select').val()
+        name = $.trim($('input[name=name]').val())
+        age = $.trim($('input[name=age]').val())
+        feature = $.trim($('input[name=feature]').val())
+        tel = $.trim($('input[name=tel]').val())
+        detail = $.trim($('textarea').val())
+
+        APIEngine.request requestType, name, age, feature, tel, detail
+          .then (data) ->
+            alert "报名成功"
+            $('input, textarea').val('')
+            return
 
 ngFurry.controller 'TeamController', ($scope) ->
   $scope.showDetail = (id) ->
