@@ -1,7 +1,8 @@
 ngFurry = angular.module 'ngFurry', ['ui.bootstrap']
 
-ngFurry.service 'APIEngine', ($http) ->
+ngFurry.service 'APIEngine', ($http, $q) ->
   @postFeedback = (feedbackType, name, tel, detail) ->
+    deferred = $q.defer()
     $http.post FURRY_SOURCE_MAP.api_url + 'feedback', {
         feedbackType: feedbackType
         name: name
@@ -9,7 +10,8 @@ ngFurry.service 'APIEngine', ($http) ->
         detail: detail
     }
     .success (data) ->
-      console.log data
+      deferred.resolve data
+    return deferred.promise
   return @
   
 
@@ -27,6 +29,10 @@ ngFurry.controller 'FeedbackController', ($scope, APIEngine) ->
 
     if name and tel and tel.length == 11 and detail
       APIEngine.postFeedback feedbackType, name, tel, detail
+        .then (data) ->
+          alert "反馈成功"
+          $('input, textarea').val('')
+          return
     else
       alert "请填写正确的信息"
 
