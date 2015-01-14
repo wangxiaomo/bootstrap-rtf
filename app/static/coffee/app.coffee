@@ -139,6 +139,9 @@ ngFurry.controller 'JoinController', ($scope, APIEngine) ->
 ngFurry.controller 'GroupsController', ($scope) ->
   $scope.groups = FURRY_GROUPS
 
+ngFurry.controller 'AwardsController', ($scope) ->
+  $scope.awards = FURRY_AWARDS
+
 ngFurry.controller 'TeamController', ($scope) ->
   $scope.showDetail = (id) ->
     $('.page1').hide()

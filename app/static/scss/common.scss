@@ -217,12 +217,15 @@ md-card {
 
   .award-meta {
     border-top: 1px solid #fff;
+    height: 70px;
+    word-wrap: break-word;
   }
 }
 
 .bd-content-award {
   background-color: #fff;
   min-height: 450px;
+  clear: both;
 }
 
 // class

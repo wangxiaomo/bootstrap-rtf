@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="./static/css/common.css" />
     <!-- endbuild -->
     <script src="/index.php?g=Api&m=wechat&a=get_system_options"></script>
+    <script src="/index.php?g=Api&m=wechat&a=get_awards"></script>
   </head>
-  <body>
+  <body data-ng-controller="AwardsController">
     <div class="hd">
       <img src="./static/images/hd-logo.png" alt=""/>
       <img src="./static/images/hd.png" alt=""/>
@@ -24,26 +25,15 @@
         <span class="feedback-pomo">学员喜报</span>
       </div>
       <div class="bd-content-award">
-        <div class="one-award">
-          <img src="./static/images/award.png" alt=""/>
+        <div class="one-award" data-ng-repeat="award in awards">
+          <img src="http://w41742077.081818.com/xing/d/file/contents/2015/0154b61951b23e2.png" alt=""/>
           <div class="award-hd">
-            <span class="award-title">98期明星学员：张力</span>
-            <span class="award-feature">专业: 钢琴</span>
-            <span class="meta">2014年考入北京音乐学院钢琴专业</span>
+            <span class="award-title">{{ award.title }}</span>
+            <span class="award-feature">专业: {{ award.major }}</span>
+            <span class="meta">{{ award.achievement }}</span>
           </div>
           <div class="award-meta">
-            <p>内蒙通辽人，毕业于中南民族大学，计算机科学与技术专业，凭着对互联网的热爱来到兄弟连，毕业期间，有着扎实的基础和吃苦耐劳的奋斗精神。
-          </div>
-        </div>
-        <div class="one-award">
-          <img src="./static/images/award.png" alt=""/>
-          <div class="award-hd">
-            <span class="award-title">98期明星学员：张力</span>
-            <span class="award-feature">专业: 钢琴</span>
-            <span class="meta">2014年考入北京音乐学院钢琴专业</span>
-          </div>
-          <div class="award-meta">
-            <p>内蒙通辽人，毕业于中南民族大学，计算机科学与技术专业，凭着对互联网的热爱来到兄弟连，毕业期间，有着扎实的基础和吃苦耐劳的奋斗精神。
+            <p>{{ award.description | cut:100 }}</p>
           </div>
         </div>
       </div>
