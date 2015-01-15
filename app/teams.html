@@ -28,7 +28,7 @@
         <span class="card-hd">师资力量</span>
 
         <div class="team-card" data-ng-repeat="team in teams">
-          <img src="http://w41742077.081818.com/xing/d/file/contents/2015/0154b631f542966.png" alt=""/>
+          <img src="{{ team.leader.thumb }}" alt=""/>
           <div class="team-info">
             <div class="team-info-wrapper">
               <span class="team-hd">{{ team.major }}{{ team.leader.job }} {{ team.leader.title }}</span>
@@ -58,7 +58,7 @@
         <span class="card-hd">星冉钢琴讲师团队</span>
 
         <div class="team-card" ng-repeat="team in majorTeams">
-          <img src="http://w41742077.081818.com/xing/d/file/contents/2015/0154b631f542966.png" alt=""/>
+          <img src="{{ team.thumb }}" alt=""/>
           <div class="team-info">
             <div class="team-info-wrapper">
               <span class="team-hd">{{ team.major }}{{ team.job }} {{ team.title }}</span>
