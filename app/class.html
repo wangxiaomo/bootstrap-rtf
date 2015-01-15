@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="./static/css/common.css" />
     <!-- endbuild -->
     <script src="/index.php?g=Api&m=wechat&a=get_system_options"></script>
+    <script src="/index.php?g=Api&m=wechat&a=get_courses"></script>
   </head>
   <body data-ng-controller="ClassController">
-    <div class="page2">
+    <div class="page1">
       <div class="hd">
         <img src="./static/images/hd-logo.png" alt=""/>
         <md-card class="search-card">
@@ -39,63 +40,59 @@
             <span>教学方式</span>
             <span>费用</span>
           </div>
-          <div class="class-item" data-id="3">
-            <span>周末</span>
-            <span>星冉钢琴培训班</span>
-            <span>成人</span>
-            <span>40人大班</span>
-            <span>39</span>
-          </div>
-          <div class="class-item" data-id="4">
-            <span>周末</span>
-            <span>星冉钢琴培训班</span>
-            <span>成人</span>
-            <span>40人大班</span>
-            <span>39</span>
+          <div class="class-item" data-ng-repeat="(id, course) in courses" data-id="{{ id }}" data-ng-click="showTarget(id)">
+            <span>{{ course.teaching_time }}</span>
+            <span>{{ course.title }}</span>
+            <span>{{ course.direction_category }}</span>
+            <span>{{ course.teaching_methods }}</span>
+            <span>{{ course.prices }}</span>
           </div>
         </md-card>
       </div>
     </div>
-    <div class="page1">
+    <div class="page2">
       <div class="hd">
         <img src="./static/images/hd-logo.png" alt=""/>
         <img src="./static/images/hd.png" alt=""/>
         <div class="class-detail">
           <div class="left">
-            <span class="class-title">星冉特色钢琴班</span>
+            <span class="class-title">{{ target.title }}</span>
             <div class="class-meta">
-              <p><i class="fa fa-location-arrow"></i>课程方向:高考培训</p>
-              <p><i class="fa fa-heart"></i>教学方式:20人小班</p>
-              <p><i class="fa fa-heart"></i>时间:周末</p>
+              <p><i class="fa fa-location-arrow"></i>课程方向: {{ target.direction_category }}</p>
+              <p><i class="fa fa-heart"></i>教学方式: {{ target.teaching_methods }}</p>
+              <p><i class="fa fa-heart"></i>时间: {{ target.teaching_time }}</p>
             </div>
           </div>
           <div class="right">
             <img src="./static/images/class.png" alt=""/>
-            <span class="price">39<i class="yuan">元</i></span>
+            <span class="price">{{ target.prices }}<i class="yuan">元</i></span>
             <a href="#">立即报名</a>
           </div>
         </div>
       </div>
       <div class="bd">
         <div class="bd-banner">
-          <span class="bd-banner-menu active" data-content-tab="最新活动" data-ng-click="showContentTab('最新活动')">最新活动</span>
+          <span class="bd-banner-menu active" data-content-tab="课程描述" data-ng-click="showContentTab('课程描述')">课程描述</span>
           <span class="bd-banner-menu" data-content-tab="课程特色" data-ng-click="showContentTab('课程特色')">课程特色</span>
           <span class="bd-banner-menu" data-content-tab="课程表" data-ng-click="showContentTab('课程表')">课程表</span>
           <span class="bd-banner-menu" data-content-tab="报名流程" data-ng-click="showContentTab('报名流程')">报名流程</span>
         </div>
         <div class="bd-content">
-          <div class="bd-content-tab active" data-content-tab="最新活动">
-            <span class="title">最新活动</span>
-            <p class="meta">XXXX</p>
+          <div class="bd-content-tab active" data-content-tab="课程描述">
+            <span class="title">课程描述</span>
+            <p class="meta" data-ng-bind-html="target.course_description"></p>
           </div>
           <div class="bd-content-tab" data-content-tab="课程特色">
-            课程特色
+            <span class="title">课程特色</span>
+            <p class="meta" data-ng-bind-html="target.course_features"></p>
           </div>
           <div class="bd-content-tab" data-content-tab="课程表">
-            课程表
+            <span class="title">课程表</span>
+            <p class="meta" data-ng-bind-html="target.syllabus"></p>
           </div>
           <div class="bd-content-tab" data-content-tab="报名流程">
-            报名流程
+            <span class="title">报名流程</span>
+            <p class="meta" data-ng-bind-html="target.process"></p>
           </div>
         </div>
       </div>
@@ -108,6 +105,7 @@
   <script src="../bower_components/angular/angular.min.js"></script>
   <script src="../bower_components/angular-filter/dist/angular-filter.min.js"></script>
   <script src="../bower_components/angular-material/angular-material.min.js"></script>
+  <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
   <script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
   <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
   <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>

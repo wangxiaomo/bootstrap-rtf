@@ -1,4 +1,4 @@
-ngFurry = angular.module 'ngFurry', ['ui.bootstrap', 'angular.filter', 'angular-loading-bar']
+ngFurry = angular.module 'ngFurry', ['ui.bootstrap', 'angular.filter', 'angular-loading-bar', 'ngSanitize']
 
 ngFurry.filter 'cut', () ->
   return (value, max, tail) ->
@@ -155,6 +155,7 @@ ngFurry.controller 'TeamsController', ($scope) ->
 ngFurry.controller 'ClassController', ($scope, $compile) ->
   $scope.choices = []
   $scope.conditions = {}
+  $scope.courses = FURRY_COURSES
 
   renderChoice = (choice) ->
     if choice in $scope.choices
@@ -200,4 +201,10 @@ ngFurry.controller 'ClassController', ($scope, $compile) ->
   $scope.showContentTab = (tab) ->
     $('.bd-banner-menu, .bd-content-tab').removeClass 'active'
     $('.bd-banner-menu[data-content-tab=' + tab + '], .bd-content-tab[data-content-tab=' + tab + ']').addClass 'active'
+    return
+
+  $scope.showTarget = (id) ->
+    $scope.target = FURRY_COURSES[id]
+    $('.page1').hide()
+    $('.page2').show()
     return
