@@ -1,4 +1,4 @@
-ngFurry = angular.module 'ngFurry', ['ui.bootstrap', 'angular.filter']
+ngFurry = angular.module 'ngFurry', ['ui.bootstrap', 'angular.filter', 'angular-loading-bar']
 
 ngFurry.filter 'cut', () ->
   return (value, max, tail) ->
