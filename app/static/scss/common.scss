@@ -328,7 +328,18 @@ md-card {
       width: 20%;
       text-align: center;
       line-height: 12px;
+
+      &.data-price {
+        color: $furryBlue;
+      }
     }
+  }
+
+  .load-more {
+    text-align: center;
+    font-size: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
   }
 }
 

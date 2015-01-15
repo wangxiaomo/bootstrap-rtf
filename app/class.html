@@ -45,8 +45,9 @@
             <span>{{ course.title }}</span>
             <span>{{ course.direction_category }}</span>
             <span>{{ course.teaching_methods }}</span>
-            <span>{{ course.prices }}</span>
+            <span class="data-price">{{ course.prices }}</span>
           </div>
+          <div class="load-more" data-ng-click="loadMore()">点击加载更多</div>
         </md-card>
       </div>
     </div>

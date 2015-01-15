@@ -24,6 +24,8 @@ ngFurry.service 'APIEngine', ($http, $q) ->
         detail: detail
     }
     .success (data) ->
+      if not _.isObject data
+        data = $.parseJSON data
       deferred.resolve data
     return deferred.promise
 
@@ -38,6 +40,8 @@ ngFurry.service 'APIEngine', ($http, $q) ->
       detail: detail
     }
     .success (data) ->
+      if not _.isObject data
+        data = $.parseJSON data
       deferred.resolve data
     return deferred.promise
 
@@ -51,6 +55,17 @@ ngFurry.service 'APIEngine', ($http, $q) ->
       detail: detail
     }
     .success (data) ->
+      if not _.isObject data
+        data = $.parseJSON data
+      deferred.resolve data
+    return deferred.promise
+
+  @loadMoreClass = (p) ->
+    deferred = $q.defer()
+    $http.get FURRY_SOURCE_MAP.api_url + 'load_more_class' + '&p=' + p
+    .success (data) ->
+      if not _.isObject data
+        data = $.parseJSON data
       deferred.resolve data
     return deferred.promise
 
@@ -152,10 +167,22 @@ ngFurry.controller 'TeamsController', ($scope) ->
     $('.page2').show()
     return
 
-ngFurry.controller 'ClassController', ($scope, $compile) ->
+ngFurry.controller 'ClassController', ($scope, $compile, APIEngine) ->
+  $scope.page = 1
   $scope.choices = []
   $scope.conditions = {}
   $scope.courses = FURRY_COURSES
+
+  $scope.loadMore = (p) ->
+    $scope.page = $scope.page + 1
+    APIEngine.loadMoreClass $scope.page
+      .then (data) ->
+        if _.isEmpty data
+          alert "没有更多了"
+          $('.load-more').remove()
+          return
+        else
+          $scope.courses = _.extend $scope.courses, data
 
   renderChoice = (choice) ->
     if choice in $scope.choices
@@ -195,7 +222,6 @@ ngFurry.controller 'ClassController', ($scope, $compile) ->
   $scope.select = (choice) ->
     if choice in $scope.choices then removeChoice(choice) else addChoice(choice)
     $('.cnt-search-token').text($scope.choices.join('+'))
-    console.log $scope.conditions
     return
 
   $scope.showContentTab = (tab) ->
