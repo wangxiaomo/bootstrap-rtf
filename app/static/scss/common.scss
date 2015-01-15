@@ -244,7 +244,7 @@ md-card {
       color: #f77e15;
     }
 
-    &:hover, &.active {
+    &.active {
       color: #fff;
       background-color: #ffc15c;
 
@@ -270,8 +270,10 @@ md-card {
     border: 1px solid #ccc;
     padding: 2px 5px;
     margin: 0px 1px;
+    color: #000;
+    background-color: #fff;
 
-    &:hover, &.active {
+    &.active {
       color: #fff;
       background-color: #f77e15;
     }
