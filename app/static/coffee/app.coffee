@@ -60,9 +60,12 @@ ngFurry.service 'APIEngine', ($http, $q) ->
       deferred.resolve data
     return deferred.promise
 
-  @loadMoreClass = (p) ->
+  @loadMoreClass = (conditions, p) ->
     deferred = $q.defer()
-    $http.get FURRY_SOURCE_MAP.api_url + 'load_more_class' + '&p=' + p
+    $http.post FURRY_SOURCE_MAP.api_url + 'load_more_class', {
+      conditions: conditions
+      page: p
+    }
     .success (data) ->
       if not _.isObject data
         data = $.parseJSON data
@@ -175,7 +178,7 @@ ngFurry.controller 'ClassController', ($scope, $compile, APIEngine) ->
 
   $scope.loadMore = (p) ->
     $scope.page = $scope.page + 1
-    APIEngine.loadMoreClass $scope.page
+    APIEngine.loadMoreClass $scope.conditions, $scope.page
       .then (data) ->
         if _.isEmpty data
           alert "没有更多了"
@@ -202,6 +205,7 @@ ngFurry.controller 'ClassController', ($scope, $compile, APIEngine) ->
         $scope.conditions[category].push(choice)
       else
         $scope.conditions[category] = [choice]
+      renderPageByChoice()
 
   removeChoice = (choice) ->
     if choice in $scope.choices
@@ -209,6 +213,16 @@ ngFurry.controller 'ClassController', ($scope, $compile, APIEngine) ->
       $('.search-token span[data-choice=' + choice + ']').removeClass 'active'
       category = getCurrentCategory()
       $scope.conditions[category] = _.filter($scope.conditions[category], (v) -> choice != v)
+      if _.isEmpty $scope.conditions[category]
+        delete $scope.conditions[category]
+      renderPageByChoice()
+
+  renderPageByChoice = () ->
+    $scope.page = 1
+    $scope.courses = {}
+    APIEngine.loadMoreClass $scope.conditions, $scope.page
+      .then (data) ->
+        $scope.courses = _.extend $scope.courses, data
 
   $scope.showOptions = (category) ->
     options = FURRY_SERVER_OPTIONS[FURRY_SOURCE_MAP.class_categories[category]]
