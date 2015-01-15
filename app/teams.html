@@ -38,7 +38,7 @@
             </div>
             <div class="team-meta">
               <div data-ng-init="rate = team.leader.star || 3"><rating data-ng-model="rate" max="5" readonly="true"></rating></div>
-              <span>共有{{ team.leader.number | defaults:100 }}人在学</span>
+              <span>共有{{ team.leader.number || 100 }}人在学</span>
               <button class="btn btn-primary btn-show-team" data-ng-click="showDetail(team.major)">查看星冉讲师团队</button>
             </div>
           </div>
@@ -68,7 +68,7 @@
             </div>
             <div class="team-meta">
               <div data-ng-init="rate = team.star || 3"><rating data-ng-model="rate" max="5" readonly="true"></rating></div>
-              <span>共有{{ team.leader.number | defaults:100 }}人在学</span>
+              <span>共有{{ team.leader.number || 100 }}人在学</span>
               <button class="btn btn-primary btn-rate">点击评价</button>
             </div>
           </div>
