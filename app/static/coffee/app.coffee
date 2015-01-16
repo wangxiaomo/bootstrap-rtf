@@ -1,4 +1,4 @@
-ngFurry = angular.module 'ngFurry', ['ui.bootstrap', 'angular.filter', 'angular-loading-bar', 'ngSanitize']
+ngFurry = angular.module 'ngFurry', ['ui.bootstrap', 'angular.filter', 'angular-loading-bar', 'ngSanitize', 'ngMaterial']
 
 ngFurry.filter 'cut', () ->
   return (value, max, tail) ->
@@ -248,3 +248,39 @@ ngFurry.controller 'ClassController', ($scope, $compile, APIEngine) ->
     $('.page1').hide()
     $('.page2').show()
     return
+
+ngFurry.controller 'MapController', ($scope) ->
+  $scope.locs = FURRY_LOCS
+
+  $scope.showPage = (selector) ->
+    $('.bd-banner span').removeClass 'active'
+    $('.page1, .page2').hide()
+    $(selector).show()
+    return
+
+  map = new BMap.Map "bmap"
+  map.enableScrollWheelZoom true
+  map.addControl new BMap.MapTypeControl()
+  map.addControl new BMap.NavigationControl()
+  map.addControl new BMap.ScaleControl()
+  map.addControl new BMap.GeolocationControl()
+
+  map.centerAndZoom "太原", 15
+
+  decoder = new BMap.Geocoder()
+  locs = _.map FURRY_LOCS, (v) ->
+    return v.address
+  for loc in locs
+    do (loc) ->
+      decoder.getPoint(loc, (p) ->
+        if p
+          marker = new BMap.Marker p
+          marker.setAnimation BMAP_ANIMATION_BOUNCE
+          opts =
+            width: 200
+            height: 50
+          infoWindow = new BMap.InfoWindow loc, opts
+          marker.addEventListener 'click', () ->
+            map.openInfoWindow infoWindow, p
+          map.addOverlay marker
+      , "太原市")

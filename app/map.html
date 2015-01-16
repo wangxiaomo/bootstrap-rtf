@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en" data-ng-app="ngFurry">
   <head>
-    <title>合作团体</title>
+    <title>加盟点</title>
     <meta charset="utf8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <!-- build:css static/css/vendor.css -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css" />
@@ -13,28 +14,33 @@
     <link rel="stylesheet" href="./static/css/common.css" />
     <!-- endbuild -->
     <script src="/index.php?g=Api&m=wechat&a=get_system_options"></script>
-    <script src="/index.php?g=Api&m=wechat&a=get_groups"></script>
+    <script src="/index.php?g=Api&m=wechat&a=get_locs"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=ndevzRCBU8vQqeDLBbcgT1U5"></script>
   </head>
-  <body data-ng-controller="GroupsController">
+  <body data-ng-controller="MapController">
     <div class="hd">
       <img src="./static/images/hd-logo.png" alt=""/>
       <img src="./static/images/hd.png" alt=""/>
     </div>
-
     <div class="bd">
       <div class="bd-banner">
-        <span class="feedback-pomo">合作团体</span>
+        <span class="map-pomo active" data-ng-click="showPage('.page1')">加盟点地图展示</span>
+        <span class="map-pomo" data-ng-click="showPage('.page2')">加盟点列表展示</span>
       </div>
-
-      <div class="group-card" data-ng-repeat="group in groups">
-        <img src="{{ group.thumb }}" alt=""/>
-        <div class="group-info">
-          <span class="group-hd">{{ group.title }}</span>
-          <p class="group-detail">
-            {{ group.description | cut:100 }}
-          </p>
+      <md-content>
+        <div class="page1">
+          <div id="bmap"></div>
         </div>
-      </div>
+        <div class="page2">
+          <md-card data-ng-repeat="loc in locs">
+            <div class="loc-title">{{ loc.title }}</div>
+            <div class="loc-meta">
+              <p class="description">{{ loc.description }}</div>
+              <p class="addr">{{ loc.address }}</p>
+            </div>
+          </md-card>
+        </div>
+      </md-content>
     </div>
 
   <!-- build:js static/js/vendor.js -->
