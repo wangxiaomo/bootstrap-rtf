@@ -12,8 +12,24 @@
     <!-- build:css static/css/common.css -->
     <link rel="stylesheet" href="./static/css/common.css" />
     <!-- endbuild -->
-    <script src="/index.php?g=Api&m=wechat&a=get_system_options"></script>
-    <script src="/index.php?g=Api&m=wechat&a=get_teams"></script>
+    <script src="/xing/index.php?g=Api&m=wechat&a=get_system_options"></script>
+    <script src="/xing/index.php?g=Api&m=wechat&a=get_teams"></script>
+
+    <!-- build:js static/js/vendor.js -->
+    <script src="../bower_components/underscore/underscore-min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/verifyjs/dist/verify.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/hammerjs/hammer.min.js"></script>
+    <script src="../bower_components/angular-filter/dist/angular-filter.min.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../bower_components/angular-material/angular-material.min.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <!-- endbuild -->
   </head>
   <body data-ng-controller="TeamsController">
     <div class="page1">
@@ -29,7 +45,7 @@
         <span class="card-hd">师资力量</span>
 
         <div class="team-card" data-ng-repeat="team in teams">
-          <img src="{{ team.leader.thumb }}" alt=""/>
+          <img data-ng-src="{{ team.leader.thumb }}" alt=""/>
           <div class="team-info">
             <div class="team-info-wrapper">
               <span class="team-hd">{{ team.major }}{{ team.leader.job }} {{ team.leader.title }}</span>
@@ -59,7 +75,7 @@
         <span class="card-hd">星冉钢琴讲师团队</span>
 
         <div class="team-card" ng-repeat="team in majorTeams">
-          <img src="{{ team.thumb }}" alt=""/>
+          <img data-ng-src="{{ team.thumb }}" alt=""/>
           <div class="team-info">
             <div class="team-info-wrapper">
               <span class="team-hd">{{ team.major }}{{ team.job }} {{ team.title }}</span>
@@ -76,23 +92,6 @@
         </div>
       </md-card>
     </div>
-    </div>
-  <!-- build:js static/js/vendor.js -->
-  <script src="../bower_components/underscore/underscore-min.js"></script>
-  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../bower_components/verifyjs/dist/verify.min.js"></script>
-  <script src="../bower_components/angular/angular.min.js"></script>
-  <script src="../bower_components/hammerjs/hammer.min.js"></script>
-  <script src="../bower_components/angular-filter/dist/angular-filter.min.js"></script>
-  <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
-  <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="../bower_components/angular-material/angular-material.min.js"></script>
-  <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-  <script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
-  <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <!-- endbuild -->
- 
   <!-- build:js static/js/app.js -->
   <script src="./static/js/source.js"></script>
   <script src="./static/js/app.js"></script>

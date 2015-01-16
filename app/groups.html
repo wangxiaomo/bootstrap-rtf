@@ -12,8 +12,24 @@
     <!-- build:css static/css/common.css -->
     <link rel="stylesheet" href="./static/css/common.css" />
     <!-- endbuild -->
-    <script src="/index.php?g=Api&m=wechat&a=get_system_options"></script>
-    <script src="/index.php?g=Api&m=wechat&a=get_groups"></script>
+    <script src="/xing/index.php?g=Api&m=wechat&a=get_system_options"></script>
+    <script src="/xing/index.php?g=Api&m=wechat&a=get_groups"></script>
+
+    <!-- build:js static/js/vendor.js -->
+    <script src="../bower_components/underscore/underscore-min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/verifyjs/dist/verify.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/hammerjs/hammer.min.js"></script>
+    <script src="../bower_components/angular-filter/dist/angular-filter.min.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../bower_components/angular-material/angular-material.min.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <!-- endbuild -->
   </head>
   <body data-ng-controller="GroupsController">
     <div class="hd">
@@ -27,7 +43,7 @@
       </div>
 
       <div class="group-card" data-ng-repeat="group in groups">
-        <img src="{{ group.thumb }}" alt=""/>
+        <img data-ng-src="{{ group.thumb }}" alt=""/>
         <div class="group-info">
           <span class="group-hd">{{ group.title }}</span>
           <p class="group-detail">
@@ -36,23 +52,6 @@
         </div>
       </div>
     </div>
-
-  <!-- build:js static/js/vendor.js -->
-  <script src="../bower_components/underscore/underscore-min.js"></script>
-  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../bower_components/verifyjs/dist/verify.min.js"></script>
-  <script src="../bower_components/angular/angular.min.js"></script>
-  <script src="../bower_components/hammerjs/hammer.min.js"></script>
-  <script src="../bower_components/angular-filter/dist/angular-filter.min.js"></script>
-  <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
-  <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="../bower_components/angular-material/angular-material.min.js"></script>
-  <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-  <script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
-  <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <!-- endbuild -->
-
   <!-- build:js static/js/app.js -->
   <script src="./static/js/source.js"></script>
   <script src="./static/js/app.js"></script>
