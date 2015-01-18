@@ -495,3 +495,26 @@ md-card {
     margin-bottom: 10px;
   }
 }
+
+#custom-map-search {
+  span {
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px 0px 0px;
+  }
+
+  span.meta {
+    font-size: 12px;
+    font-weight: normal;
+  }
+  
+  .groups {
+    margin: 10px 0px;
+  }
+
+  button {
+    color: #fff;
+    background-color: $furryBlue;
+  }
+}

@@ -45,6 +45,15 @@
       </div>
       <md-content>
         <div class="page1">
+          <div id="custom-map-search">
+            <span>查找半径</span>
+            <span class="meta">以当前地图中心点,在指定半径范围内查找</span>
+            <div class="groups">
+              <button class="btn" data-ng-click="searchMap(1)">1公里</button>
+              <button class="btn" data-ng-click="searchMap(2)">2公里</button>
+              <button class="btn" data-ng-click="searchMap(5)">5公里</button>
+            </div>
+          </div>
           <div id="bmap"></div>
         </div>
         <div class="page2">

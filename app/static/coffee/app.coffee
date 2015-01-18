@@ -258,6 +258,18 @@ ngFurry.controller 'MapController', ($scope) ->
     $(selector).show()
     return
 
+  $scope.searchMap = (v) ->
+    map.removeOverlay @circle
+    center = map.getCenter()
+    @circle = new BMap.Circle center, v*1000, {
+      fillColor: "blue"
+      strokeWeight: 1
+      fillOpacity: 0.3
+      strokeOpacity: 0.3
+    }
+    map.addOverlay @circle
+
+
   map = new BMap.Map "bmap"
   map.enableScrollWheelZoom true
   map.addControl new BMap.MapTypeControl()
