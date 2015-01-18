@@ -284,3 +284,12 @@ ngFurry.controller 'MapController', ($scope) ->
             map.openInfoWindow infoWindow, p
           map.addOverlay marker
       , "太原市")
+
+ngFurry.controller 'EventsController', ($scope) ->
+  $scope.events = FURRY_EVENTS
+
+  $scope.showEvent = (id) ->
+    $scope.target = FURRY_EVENTS[id]
+    $('.page1').hide()
+    $('.page2').show()
+    return

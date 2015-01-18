@@ -485,4 +485,13 @@ md-card {
     line-height: 12px;
     padding: 0px 10px;
   }
+
+  .title {
+    border-left: 5px solid #ffc15c;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 10px;
+  }
 }
