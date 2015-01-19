@@ -25,6 +25,7 @@
     "angular-loading-bar": "~0.6.0",
     "jquery-file-upload": "~9.8.1",
     "ngstorage": "~0.3.0",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "jquery-loading-overlay": "~1.0.2"
   }
 }
