@@ -305,3 +305,11 @@ ngFurry.controller 'EventsController', ($scope) ->
     $('.page1').hide()
     $('.page2').show()
     return
+
+ngFurry.controller 'AboutController', ($scope) ->
+  $scope.target = FURRY_ABOUTUS
+
+  $scope.showContentTab = (tab) ->
+    $('.bd-banner-menu, .bd-content-tab').removeClass 'active'
+    $('.bd-banner-menu[data-content-tab=' + tab + '], .bd-content-tab[data-content-tab=' + tab + ']').addClass 'active'
+    return

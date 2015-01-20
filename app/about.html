@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" data-ng-app="ngFurry">
   <head>
-    <title>加盟点</title>
+    <title>关于星冉</title>
     <meta charset="utf8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -13,8 +13,7 @@
     <!-- build:css static/css/common.css -->
     <link rel="stylesheet" href="./static/css/common.css" />
     <!-- endbuild -->
-    <script src="/xing/index.php?g=Api&m=wechat&a=get_locs"></script>
-    <script src="http://api.map.baidu.com/api?v=2.0&ak=ndevzRCBU8vQqeDLBbcgT1U5"></script>
+    <script src="/xing/index.php?g=Api&m=wechat&a=about_us"></script>
 
     <!-- build:js static/js/vendor.js -->
     <script src="../bower_components/underscore/underscore-min.js"></script>
@@ -32,39 +31,36 @@
     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <!-- endbuild -->
   </head>
-  <body data-ng-controller="MapController">
+  <body data-ng-controller="AboutController">
     <div class="hd">
       <img src="./static/images/hd-logo.png" alt=""/>
       <img src="./static/images/hd.png" alt=""/>
     </div>
     <div class="bd">
       <div class="bd-banner">
-        <span class="map-pomo active" data-ng-click="showPage('.page1')">加盟点地图展示</span>
-        <span class="map-pomo" data-ng-click="showPage('.page2')">加盟点列表展示</span>
+        <span class="bd-banner-menu active" data-content-tab="tab_1" data-ng-click="showContentTab('tab_1')">关于星冉</span>
+        <span class="bd-banner-menu" data-content-tab="tab_2" data-ng-click="showContentTab('tab_2')">琴行</span>
+        <span class="bd-banner-menu" data-content-tab="tab_3" data-ng-click="showContentTab('tab_3')">调率公司</span>
+        <span class="bd-banner-menu" data-content-tab="tab_4" data-ng-click="showContentTab('tab_4')">钢琴厂</span>
       </div>
-      <md-content>
-        <div class="page1">
-          <div id="custom-map-search">
-            <span>查找半径</span>
-            <span class="meta">以当前地图中心点,在指定半径范围内查找</span>
-            <div class="groups">
-              <button class="btn" data-ng-click="searchMap(1)">1公里</button>
-              <button class="btn" data-ng-click="searchMap(2)">2公里</button>
-              <button class="btn" data-ng-click="searchMap(5)">5公里</button>
-            </div>
-          </div>
-          <div id="bmap"></div>
+      <div class="bd-content">
+        <div class="bd-content-tab active" data-content-tab="tab_1">
+          <span class="title">关于星冉</span>
+          <p class="meta" data-ng-bind-html="target.tab_1.description"></p>
         </div>
-        <div class="page2">
-          <md-card data-ng-repeat="loc in locs">
-            <div class="loc-title">{{ loc.title }}</div>
-            <div class="loc-meta">
-              <p class="description">{{ loc.description }}</div>
-              <p class="addr">{{ loc.address }}</p>
-            </div>
-          </md-card>
+        <div class="bd-content-tab" data-content-tab="tab_2">
+          <span class="title">琴行</span>
+          <p class="meta" data-ng-bind-html="target.tab_2.description"></p>
         </div>
-      </md-content>
+        <div class="bd-content-tab" data-content-tab="tab_3">
+          <span class="title">调率公司</span>
+          <p class="meta" data-ng-bind-html="target.tab_3.description"></p>
+        </div>
+        <div class="bd-content-tab" data-content-tab="tab_4">
+          <span class="title">钢琴厂</span>
+          <p class="meta" data-ng-bind-html="target.tab_4.description"></p>
+        </div>
+      </div>
     </div>
   <!-- build:js static/js/app.js -->
   <script src="./static/js/source.js"></script>
