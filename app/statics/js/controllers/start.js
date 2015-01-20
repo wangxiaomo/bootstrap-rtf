@@ -1,5 +1,5 @@
 angular.module('ngFancy')
-  .controller('MainCtrl', ['$scope', '$modal', '$location', function($scope, $modal, $location) {
+  .controller('StartCtrl', ['$scope', '$modal', '$location', function($scope, $modal, $location) {
 
     var getHour = function () {
       var date = new Date();
@@ -10,7 +10,7 @@ angular.module('ngFancy')
       $('#overlay').show();
       var modalInstance = $modal.open({
         templateUrl: 'modal-alert',
-        controller: 'MainModalCtrl',
+        controller: 'StartModalCtrl',
         backdrop: false,
         keyboard: false,
         size: 'lg',
@@ -26,13 +26,13 @@ angular.module('ngFancy')
       if(cntHour < 7 || cntHour > 20){
         $scope.showModal();
       }else{
-        $location.path('/upload')
+        $location.path('/count')
       }
     };
   }]);
 
 angular.module('ngFancy')
-  .controller('MainModalCtrl', ['$scope', '$modalInstance', function($scope, $modalInstance) {
+  .controller('StartModalCtrl', ['$scope', '$modalInstance', function($scope, $modalInstance) {
     $scope.dismiss = function () {
       $modalInstance.dismiss('cancel');
       $('#overlay').hide();

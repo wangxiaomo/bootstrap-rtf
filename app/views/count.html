@@ -1,0 +1,15 @@
+<div class="count-wrapper" ng-controller="CountCtrl">
+  <p class="title">请选择事故车辆数量</p>
+
+  <div class="count-area">
+    <span class="left"> {{ i - 1 }}</span>
+    <span class="center"> {{ i }}</span>
+    <span class="right"> {{ i + 1 }}</span>
+  </div>
+  <div class="btn-groups">
+    <i class="fa fa-plus" data-ng-click="add()"></i>
+    <i class="fa fa-minus" data-ng-click="minus()"></i>
+  </div>
+  <p class="memo">提示：如需取证更多照片，可用手机自行拍照并保存</p>
+  <button class="btn btn-primary btn-take-photo" data-ng-click="goTakePhoto()">上传照片</button>
+</div>

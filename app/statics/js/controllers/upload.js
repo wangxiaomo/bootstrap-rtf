@@ -1,5 +1,13 @@
 angular.module('ngFancy')
-  .controller('UploadCtrl', ['$scope', '$localStorage', '$location', '$modal', function($scope, $localStorage, $location, $modal) {
+  .controller('UploadCtrl', ['$scope', '$localStorage', '$location', '$modal', '$compile', function($scope, $localStorage, $location, $modal, $compile) {
+
+    var count = $localStorage.count,
+        photoCount = 3;
+    if(count < 2 || count > 5) {
+      $location.path('/');
+    }
+
+    $scope.cntSnapIndex = 1;
 
     $scope.showBig = function (index) {
       $('#overlay').show();
@@ -15,6 +23,19 @@ angular.module('ngFancy')
           modalImgSrc: function() { return modalImgSrc; }
         }
       });
+    };
+
+    $scope.addAnotherPhoto = function () {
+      if(photoCount >= 6) {
+        alert("最多只能传6张照片,您可以将照片存储在手机中以备使用");
+        return;
+      }
+      photoCount = photoCount + 1;
+      var template = _.template($('#photo-card').html());
+      $('.upload-cards').append($compile(template({i: photoCount}))($scope));
+      if(photoCount - $scope.cntSnapIndex > 1){
+        $('.btn-groups-' + photoCount).find('button').addClass('btn-disable');
+      }
     };
 
     $('#hidden-input').fileupload({
@@ -73,14 +94,14 @@ angular.module('ngFancy')
         $('#overlay').show();
         var modalInstance = $modal.open({
           templateUrl: 'modal-submit-alert',
-          controller: 'MainModalCtrl',
+          controller: 'StartModalCtrl',
           backdrop: false,
           keyboard: false,
           size: 'lg',
         });
       }else{
         $localStorage.pics = pics;
-        $location.path('/mobile');
+        $location.path('/info');
       }
     };
   }]);

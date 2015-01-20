@@ -341,7 +341,7 @@ md-content {
   width: 30%;
 }
 
-/* mobile page */
+/* info page */
 .mobile-page {
   span {
     display: block;
@@ -512,5 +512,129 @@ md-content {
       margin-left: 20px;
       @include border-radius(0px);
     }
+  }
+}
+
+/* count page */
+.count-wrapper {
+
+  padding-top: 10%;
+  
+  .title {
+    padding: 15% 0px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  span {
+    display: block;
+    width: 33%;
+    float: left;
+    font-size: 70px;
+    font-weight: bold;
+    color: #d5d5d5;
+  }
+
+  .center {
+    color: #3d9af7;
+    border: 1px solid #9f9f9f;
+    @include border-radius(100px);
+  }
+
+  .count-area {
+    width: 100%;
+    height: 120px;
+    padding: 0px 5%;
+    text-align: center;
+  }
+
+  .btn-groups {
+    margin: 5% 20%;
+    height: 100px;
+
+    i {
+      display: block;
+      width: 50%;
+      text-align: center;
+      float: left;
+      margin: 5% 0px;
+      font-size: 50px;
+    }
+  }
+
+  .memo {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .btn-take-photo {
+    width: 80%;
+    margin: 0px 10%;
+    color: #fff;
+    background-color: #3d9af7;
+    border: none;
+  }
+}
+
+.add-another-photo {
+  font-size: 20px;
+  color: #999;
+  text-align: center;
+  height: 30px;
+  margin: 2%;
+  width: 96%;
+  border: 1px dashed #d9d9d9;
+}
+
+.form-group {
+  .form-label {
+    display: block;
+    float: left;
+    width: 40%;
+    height: 30px;
+    padding: 2% 5%;
+    text-align: right;
+  }
+
+  .form-control {
+    width: 50%;
+    @include border-radius(0px);
+  }
+}
+
+.form-button {
+  .btn-lock {
+    float: right;
+    width: 40%;
+    margin: 0% 10%;
+  }
+}
+
+.info-content {
+
+  md-card {
+    position: relative;
+  }
+
+  .card-hd {
+    width: 70px;
+    background-color: #3d9af7;
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  form {
+    margin-top: 45px;
+  }
+
+  .btn-update-mobile {
+    width: 90%;
+    margin: 0% 5%;
   }
 }

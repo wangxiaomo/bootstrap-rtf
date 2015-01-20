@@ -1,0 +1,29 @@
+<div ng-controller="InfoCtrl" class="mobile-page">
+  <md-content class="info-content">
+    <md-card ng-repeat="i in counts" data-card-id="{{ i }}">
+      <span class="card-hd">{{ numCN[i] }}方</span>
+      <form class="form-horizontal" method="POST" action="">
+        <div class="form-group">
+          <label for="tel" class="form-label">手机号:</label>
+          <input type="tel" name="tel" class="form-control" data-validate="required" data-msg="请正确填写手机号"/>
+        </div>
+        <div class="form-group">
+          <label for="cphm" class="form-label">车牌号码:</label>
+          <input type="text" name="cphm" class="form-control" data-validate="required" data-msg="请填写车牌号码"/>
+        </div>
+        <div class="form-group">
+          <label for="sbdm" class="form-label">识别代码:</label>
+          <input type="text" name="sbdm" class="form-control" data-validate="required" data-msg="请填写识别代码"/>
+        </div>
+        <div class="form-group">
+          <label for="bxgs" class="form-label">投保保险:</label>
+          <input type="text" name="bxgs" class="form-control" data-validate="required" data-msg="请填写投保保险"/>
+        </div>
+        <div class="form-group form-button">
+          <button class="btn btn-lock" data-ng-click="lockInput(i, $event)">锁定</button>
+        </div>
+      </form>
+    </md-card>
+    <button class="btn btn-update-mobile" ng-click="goNext()">确认上传</button>
+  </md-content>
+</div>

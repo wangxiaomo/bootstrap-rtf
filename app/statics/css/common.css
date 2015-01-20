@@ -405,7 +405,7 @@ md-content {
   width: 30%;
 }
 
-/* mobile page */
+/* info page */
 .mobile-page span {
   display: block;
   padding: 0px 10px 10px 10px;
@@ -549,4 +549,112 @@ md-content {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
+}
+
+/* count page */
+.count-wrapper {
+  padding-top: 10%;
+}
+.count-wrapper .title {
+  padding: 15% 0px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+.count-wrapper span {
+  display: block;
+  width: 33%;
+  float: left;
+  font-size: 70px;
+  font-weight: bold;
+  color: #d5d5d5;
+}
+.count-wrapper .center {
+  color: #3d9af7;
+  border: 1px solid #9f9f9f;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+}
+.count-wrapper .count-area {
+  width: 100%;
+  height: 120px;
+  padding: 0px 5%;
+  text-align: center;
+}
+.count-wrapper .btn-groups {
+  margin: 5% 20%;
+  height: 100px;
+}
+.count-wrapper .btn-groups i {
+  display: block;
+  width: 50%;
+  text-align: center;
+  float: left;
+  margin: 5% 0px;
+  font-size: 50px;
+}
+.count-wrapper .memo {
+  font-size: 10px;
+  line-height: 12px;
+}
+.count-wrapper .btn-take-photo {
+  width: 80%;
+  margin: 0px 10%;
+  color: #fff;
+  background-color: #3d9af7;
+  border: none;
+}
+
+.add-another-photo {
+  font-size: 20px;
+  color: #999;
+  text-align: center;
+  height: 30px;
+  margin: 2%;
+  width: 96%;
+  border: 1px dashed #d9d9d9;
+}
+
+.form-group .form-label {
+  display: block;
+  float: left;
+  width: 40%;
+  height: 30px;
+  padding: 2% 5%;
+  text-align: right;
+}
+.form-group .form-control {
+  width: 50%;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.form-button .btn-lock {
+  float: right;
+  width: 40%;
+  margin: 0% 10%;
+}
+
+.info-content md-card {
+  position: relative;
+}
+.info-content .card-hd {
+  width: 70px;
+  background-color: #3d9af7;
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding: 10px;
+  text-align: center;
+}
+.info-content form {
+  margin-top: 45px;
+}
+.info-content .btn-update-mobile {
+  width: 90%;
+  margin: 0% 5%;
 }

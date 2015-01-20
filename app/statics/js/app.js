@@ -2,16 +2,20 @@ angular.module('ngFancy', ['ngRoute', 'ngStorage', 'ui.bootstrap', 'angular-load
   .config(['$routeProvider', function($routeProvider){
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/start.html',
+        controller: 'StartCtrl'
+      })
+      .when('/count', {
+        templateUrl: 'views/count.html',
+        controller: 'CountCtrl'
       })
       .when('/upload', {
         templateUrl: 'views/upload.html',
         controller: 'UploadCtrl'
       })
-      .when('/mobile', {
-        templateUrl: 'views/mobile.html',
-        controller: 'MobileCtrl'
+      .when('/info', {
+        templateUrl: 'views/info.html',
+        controller: 'InfoCtrl'
       })
       .when('/done', {
         templateUrl: 'views/done.html',
