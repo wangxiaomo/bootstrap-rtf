@@ -1,9 +1,17 @@
 angular.module('ngFancy')
-  .controller('InfoCtrl', ['$scope', '$localStorage', '$location', function($scope, $localStorage, $location) {
+  .controller('InfoCtrl', ['$scope', '$localStorage', '$location', '$q', 'API', function($scope, $localStorage, $location, $q, API) {
 
-    // TODO: 照片检测
-    var totalCount = $localStorage.count,
+    API.getLocData().then(function(d){
+      console.log(d);
+    });
+
+    var pics = $localStorage.pics,
+        totalCount = $localStorage.count,
         numCN = ['甲', '乙', '丙', '丁', '戊', '己'];
+
+    if(_.isUndefined(pics) || _.isUndefined(totalCount) || pics.length < 3 || totalCount < 2 || totalCount > 5){
+      $location.path('/');
+    }
 
     $scope.numCN = numCN;
     $scope.counts = _.range(totalCount);
@@ -19,9 +27,11 @@ angular.module('ngFancy')
     $scope.lockInput = lockInput;
     $scope.goNext = function () {
       var buttons = $('button:disabled');
-      if(buttons.length !== 3){
+      if(buttons.length !== totalCount){
         alert("请先锁定全部相关事故人信息!");
         return;
+      }else{
+        $location.path('/done');
       }
     };
   }]);

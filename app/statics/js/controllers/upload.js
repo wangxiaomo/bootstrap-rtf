@@ -81,7 +81,8 @@ angular.module('ngFancy')
 
     $scope.goNext = function () {
       var pics = [];
-      _.map([1,2,3], function(i){
+      _.map(_.range(photoCount), function(i){
+        i = i + 1;
         pics.push({
           url: $('#p' + i + '-data-url').val(),
           thumb: $('#p' + i + '-data-thumb').val()
@@ -90,7 +91,7 @@ angular.module('ngFancy')
       pics = _.filter(pics, function(v){
         return v.url != '';
       });;
-      if(pics.length !== 3){
+      if(pics.length < 3){
         $('#overlay').show();
         var modalInstance = $modal.open({
           templateUrl: 'modal-submit-alert',
