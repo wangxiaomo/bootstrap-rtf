@@ -10,7 +10,6 @@ var gulp = require('gulp'),
     rev = require('gulp-rev'),
     del = require('del');
 
-
 gulp.task('clean', function(cb) {
   return del(['app/statics/css/*', DIST_ROOT], cb);
 });
@@ -30,12 +29,14 @@ gulp.task('compass', function() {
     }));
 });
 
-gulp.task('usemin', ['clean', 'compass', 'coffee'], function() {
+gulp.task('fonts', function() {
+  return gulp.src([APP_ROOT + 'statics/fonts/*', './bower_components/fontawesome/fonts/*'])
+    .pipe(gulp.dest(DIST_ROOT + 'statics/fonts'));
+});
+
+gulp.task('usemin', ['compass', 'coffee', 'fonts'], function() {
   gulp.src(APP_ROOT + 'statics/images/**')
     .pipe(gulp.dest(DIST_ROOT + 'statics/images'));
-
-  gulp.src(APP_ROOT + 'statics/fonts/**')
-    .pipe(gulp.dest(DIST_ROOT + 'statics/fonts'));
 
   gulp.src(['./bower_components/**/*.map'])
     .pipe(rename({
@@ -51,5 +52,5 @@ gulp.task('usemin', ['clean', 'compass', 'coffee'], function() {
     .pipe(gulp.dest(DIST_ROOT));
 });
 
-gulp.task('build', ['clean', 'usemin']);
+gulp.task('build', ['usemin']);
 gulp.task('default', ['build']);
