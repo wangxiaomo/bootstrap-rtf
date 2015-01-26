@@ -3,8 +3,7 @@ angular.module('ngFancy')
       function($scope, $localStorage, $location, $routeParams) {
 
     var params = $routeParams,
-        eventID = params.eventID,
-        event = $localStorage.events[eventID];
+        eventID = params.eventID;
 
-    $scope.event = event;
+    console.log(eventID);
   }]);

@@ -34,4 +34,13 @@ angular.module('ngFancy').service('API', function($http, $q) {
     });
     return defered.promise;
   };
+
+  this.sendEvent = function (event) {
+    var defered = $q.defer();
+    $http.post('/fancy/index.php?g=Api&m=wechat&a=add', event)
+      .success(function(data) {
+        defered.resolve(data);
+      });
+    return defered.promise;
+  };
 });
