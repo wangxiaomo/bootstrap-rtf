@@ -3,7 +3,16 @@ angular.module('ngFancy')
 
     $scope.events = $localStorage.events;
 
+    var goDetail = function (id) {
+      $location.path('/detail/' + id);
+    };
+
     $scope.showDetail = function (eventID) {
-      $location.path('/detail/' + eventID);
+      goDetail(eventID);
+    };
+
+    $scope.search = function () {
+      var eventID = $.trim($('input[name=eventID]').val());
+      goDetail(eventID);
     };
   }]);
