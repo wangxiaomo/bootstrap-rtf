@@ -35,34 +35,30 @@ angular.module('ngFancy').service('API', function($http, $q) {
     return defered.promise;
   };
 
-  this.sendEvent = function (event) {
-    var defered = $q.defer();
-    $http.post('/fancy/index.php?g=Api&m=wechat&a=add', event)
+  var post = function(url, params) {
+    var deferred = $q.defer();
+    $http.post(url, params)
       .success(function(data) {
-        defered.resolve(data);
+        deferred.resolve(data);
       });
-    return defered.promise;
+    return deferred.promise;
+  };
+
+  this.sendEvent = function (event) {
+    return post('/fancy/index.php?g=Api&m=wechat&a=add', event);
   };
 
   this.search = function (id) {
-    var defered = $q.defer();
-    $http.post('/fancy/index.php?g=Api&m=wechat&a=search', {
+    return post('/fancy/index.php?g=Api&m=wechat&a=search', {
       id: id
-    }).success(function(data) {
-      defered.resolve(data);
     });
-    return defered.promise;
   };
 
   this.check = function(tel, cphm, sbdh) {
-    var defered = $q.defer();
-    $http.post('/fancy/index.php?g=Api&m=wechat&a=check_car', {
+    return post('/fancy/index.php?g=Api&m=wechat&a=check_car', {
       tel: tel,
       cphm: cphm,
       clsbdh: sbdh
-    }).success(function(data) {
-      defered.resolve(data);
     });
-    return defered.promise;
   };
 });
