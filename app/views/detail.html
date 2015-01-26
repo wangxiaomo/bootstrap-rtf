@@ -1,19 +1,25 @@
 <div class="detail-wrapper" ng-controller="DetailCtrl">
-  <div class="detail-image-wrapper">
-    <img alt="event detail img" src="http://www.sxgajj.gov.cn{{ p.thumb }}" ng-repeat="p in event.pics" />
-  </div>
-  <div class="content">
-    <span>事故日期:</span>
-    <span class="data-span">{{ event.date }}</span>
-    <span>事故地点:</span>
-    <span class="data-span">{{ event.loc.loc || '未识别' }}</span>
-    <span>事故编码:</span>
-    <span class="data-span">{{ event.sgbh }}</span>
-    <span>处理单位:</span>
-    <span class="data-span">x事故快处中心</span>
-    <span>电话:</span>
-    <span class="data-span">15296615321<a class="btn btn-call" href="tel:15296615321">拨号</a></span>
-    <span>处理状态:</span>
-    <span class="data-span">未处理</span>
-  </div>
+  <md-card ng-if="!event">
+    <p class="no-event">没有相关快处事件</p>
+    <p class="go-back-search" data-ng-click="goSearch()">返回继续查找</p>
+  </md-card>
+  <md-card ng-if="event">
+    <div class="detail-image-wrapper">
+      <img alt="event detail img" ng-src="http://www.sxgajj.gov.cn{{ p.thumb }}" ng-repeat="p in event.pics" />
+    </div>
+    <div class="content">
+      <span>事故日期:</span>
+      <span class="data-span">{{ event.date }}</span>
+      <span>事故地点:</span>
+      <span class="data-span">{{ event.sgdz || '后台识别中...' }}</span>
+      <span>事故编码:</span>
+      <span class="data-span">{{ event.sgbh }}</span>
+      <span>处理单位:</span>
+      <span class="data-span">x事故快处中心</span>
+      <span>电话:</span>
+      <span class="data-span">15296615321<a class="btn btn-call" href="tel:15296615321">拨号</a></span>
+      <span>处理状态:</span>
+      <span class="data-span">{{ event.sgzt }}</span>
+    </div>
+  </md-card>
 </div>

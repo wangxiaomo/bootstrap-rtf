@@ -488,7 +488,6 @@ md-content {
 
 /* detail page */
 .detail-wrapper {
-  background-color: #ededed;
 
   .detail-image-wrapper {
     text-align: center;
@@ -505,6 +504,7 @@ md-content {
       display: block;
       padding: 10px 5%;
       font-size: 18px;
+      background-color: #ededed;
     }
 
     .data-span {
@@ -644,4 +644,16 @@ md-content {
     width: 90%;
     margin: 0% 5%;
   }
+}
+
+.no-event {
+  text-align: center;
+  font-size: 20px;
+  padding: 40px 0px;
+}
+.go-back-search {
+  text-align: center;
+  font-size: 17px;
+  color: blue;
+  text-decoration: underline;
 }

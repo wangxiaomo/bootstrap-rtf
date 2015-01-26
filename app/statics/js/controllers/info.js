@@ -29,10 +29,17 @@ angular.module('ngFancy')
       e.preventDefault();
       var card = $('md-card[data-card-id=' + i + ']');
 
-      //TODO: check api
-
-      $(card).find('input').attr('readOnly', 'readOnly');
-      $(card).find('button').text('已锁定').attr('disabled', 'disabled');
+      var tel = $.trim($(card).find('input[name=tel]').val()),
+          cphm = $.trim($(card).find('input[name=cphm]').val()),
+          sbdm = $.trim($(card).find('input[name=sbdm]').val());
+      API.check(tel, cphm, sbdm).then(function(data){
+        if(data.r == 1){
+          $(card).find('input').attr('readOnly', 'readOnly');
+          $(card).find('button').text('已锁定').attr('disabled', 'disabled');
+        }else{
+          alert(data.msg);
+        }
+      });
     };
 
     $scope.lockInput = lockInput;

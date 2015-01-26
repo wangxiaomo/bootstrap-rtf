@@ -43,4 +43,26 @@ angular.module('ngFancy').service('API', function($http, $q) {
       });
     return defered.promise;
   };
+
+  this.search = function (id) {
+    var defered = $q.defer();
+    $http.post('/fancy/index.php?g=Api&m=wechat&a=search', {
+      id: id
+    }).success(function(data) {
+      defered.resolve(data);
+    });
+    return defered.promise;
+  };
+
+  this.check = function(tel, cphm, sbdh) {
+    var defered = $q.defer();
+    $http.post('/fancy/index.php?g=Api&m=wechat&a=check_car', {
+      tel: tel,
+      cphm: cphm,
+      clsbdh: sbdh
+    }).success(function(data) {
+      defered.resolve(data);
+    });
+    return defered.promise;
+  };
 });
