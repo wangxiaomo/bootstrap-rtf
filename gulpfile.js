@@ -3,6 +3,7 @@ var APP_ROOT = './app/',
 
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
+    livereload = require('gulp-livereload'),
     usemin = require('gulp-usemin'),
     compass = require('gulp-compass'),
     coffee = require('gulp-coffee'),
@@ -50,6 +51,17 @@ gulp.task('usemin', ['compass', 'coffee', 'fonts'], function() {
       js: [rev()]
     }))
     .pipe(gulp.dest(DIST_ROOT));
+});
+
+gulp.task('watch', function() {
+  livereload.listen();
+
+  gulp.watch('./app/**/*', ['usemin']);
+  gulp.watch('./dist/**/*', function(e) {
+    console.log("file", e.path, "changed...");
+    livereload.reload('/');
+    livereload();
+  });
 });
 
 gulp.task('build', ['usemin']);
