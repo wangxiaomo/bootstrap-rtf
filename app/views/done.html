@@ -1,13 +1,24 @@
 <div class="content-wrapper" ng-controller="DoneCtrl">
   <p class="hd">事故编码</p>
   <div class="code-wrapper">
-    <div class="code">{{ event.sgbh }}</div>
+    <div class="code">ID: {{ event.sgbh }}</div>
   </div>
   <div class="meta">
     <p>请双方凭以上事故唯一编号</p>
     <p>在<i class="bold">24小时内</i>约定时间</p>
     <p>一同前往快处中心处理</p>
     <p>可依据该事故编码查询处理结果</p>
+
+    <div class="center-info" data-ng-if="center">
+      <p class="center-name">{{ center.name }}</p>
+      <p>电话: <a href="tel:{{ center.tel }}">{{ center.tel }}</a></p>
+      <p>地址: {{ center.addr }}</p>
+    </div>
+    <div class="center-info" data-ng-if="fallback">
+      <p>事故提交成功</p>
+      <p>但地理位置获取失败</p>
+      <p>请到就近的快处中心前往处理</p>
+    </div>
     <button class="btn btn-submit" ng-click="goHome()">确认</button>
   </div>
 </div>

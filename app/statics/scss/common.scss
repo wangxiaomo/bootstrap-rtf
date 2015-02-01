@@ -412,6 +412,20 @@ md-content {
     margin: 0px;
   }
 
+  .center-info {
+    margin-top: 50px;
+
+    p {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .center-name {
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }
+
   .bold {
     color: #1694ce;
     font-size: 20px;
