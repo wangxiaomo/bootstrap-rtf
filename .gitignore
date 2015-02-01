@@ -2,6 +2,7 @@ node_modules
 .sass-cache
 bower_components
 dist
+gulpfile.js
 
 .DS_Store
 app/statics/css
