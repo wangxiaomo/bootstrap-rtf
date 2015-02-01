@@ -1,4 +1,4 @@
-angular.module('ngFancy').service('API', function($http, $q) {
+angular.module('ngFancy').service('API', ['$http', '$q', function($http, $q) {
   var getLoc = function () {
     var geolocation = new BMap.Geolocation(),
         defered = $q.defer();
@@ -61,4 +61,4 @@ angular.module('ngFancy').service('API', function($http, $q) {
       clsbdh: sbdh
     });
   };
-});
+}]);
