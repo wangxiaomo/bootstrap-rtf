@@ -73,6 +73,7 @@ angular.module('ngFancy')
           API.sendEvent(event).then(function(d) {
             if(d.r == 1){
               event.sgbh = d.msg.sgbh;
+              event.role = d.msg.role;
               event.date = (new Date()).toLocaleDateString();
               $localStorage.lastEventID = event.sgbh;
               $localStorage.events = $localStorage.events || {};
