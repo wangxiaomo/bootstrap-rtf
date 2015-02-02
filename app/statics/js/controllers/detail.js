@@ -8,6 +8,11 @@ angular.module('ngFancy')
     API.search(eventID).then(function(data){
       if(data.r == 1){
         $scope.event = data.msg.event;
+        if($scope.event.role) {
+          $scope.center = FANCY_CENTERS[$scope.event.role];
+        }else{
+          $scope.fallback = true;
+        }
       }
     });
 

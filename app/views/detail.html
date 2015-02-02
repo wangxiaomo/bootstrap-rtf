@@ -8,16 +8,18 @@
       <img alt="event detail img" ng-src="http://www.sxgajj.gov.cn{{ p.thumb }}" ng-repeat="p in event.pics" />
     </div>
     <div class="content">
-      <span>事故日期:</span>
+      <span>事故时间:</span>
       <span class="data-span">{{ event.date }}</span>
       <span>事故地点:</span>
       <span class="data-span">{{ event.sgdz || '后台识别中...' }}</span>
       <span>事故编码:</span>
       <span class="data-span">{{ event.sgbh }}</span>
       <span>处理单位:</span>
-      <span class="data-span">x事故快处中心</span>
+      <span class="data-span" data-ng-if="center">{{ center.name }}</span>
+      <span class="data-span" data-ng-if="fallback">事故已提交，但地理位置获取失败，请到就近的快处中心处理</span>
       <span>电话:</span>
-      <span class="data-span">15296615321<a class="btn btn-call" href="tel:15296615321">拨号</a></span>
+      <span class="data-span" data-ng-if="center">{{ center.tel }}<a class="btn btn-call" href="tel:{{ center.tel }}">拨号</a></span>
+      <span class="data-span" data-ng-if="fallback"></span>
       <span>处理状态:</span>
       <span class="data-span">{{ event.sgzt }}</span>
     </div>
