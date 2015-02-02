@@ -2,9 +2,9 @@
   <p class="title">请选择事故车辆数量</p>
 
   <div class="count-area">
-    <span class="left"> {{ i - 1 }}</span>
+    <span class="left" data-ng-click="minus()"> {{ i - 1 }}</span>
     <span class="center"> {{ i }}</span>
-    <span class="right"> {{ i + 1 }}</span>
+    <span class="right" data-ng-click="add()"> {{ i + 1 }}</span>
   </div>
   <div class="btn-groups">
     <i class="fa fa-plus" data-ng-click="add()"></i>
