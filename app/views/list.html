@@ -11,7 +11,7 @@
     <md-card ng-if="events.length == 0">
       暂时没有相关信息
     </md-card>
-    <md-card ng-repeat="(id, event) in events">
+    <md-card ng-repeat="event in events">
       <div class="card-wrapper" ng-click="showDetail(event.sgbh)">
         <div class="left-card"><img class="round-conner" ng-src="http://www.sxgajj.gov.cn{{ event.imgs[0].thumb }}" alt="event img" /></div>
         <div class="right-card">
