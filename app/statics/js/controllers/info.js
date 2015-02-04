@@ -4,6 +4,7 @@ angular.module('ngFancy')
 
     var pics = $localStorage.pics,
         totalCount = $localStorage.count,
+        lockedCars = [],
         numCN = ['甲', '乙', '丙', '丁', '戊', '己'];
 
     if(_.isUndefined(pics) || _.isUndefined(totalCount) || pics.length < 3 || totalCount < 2 || totalCount > 5){
@@ -32,8 +33,13 @@ angular.module('ngFancy')
       var tel = $.trim($(card).find('input[name=tel]').val()),
           cphm = $.trim($(card).find('input[name=cphm]').val()),
           sbdm = $.trim($(card).find('input[name=sbdm]').val());
+      if(_.indexOf(lockedCars, cphm.toUpperCase()) !== -1) {
+        alert("请不要重复提交相同的车辆信息");
+        return false;
+      }
       API.check(tel, cphm, sbdm).then(function(data){
         if(data.r == 1){
+          lockedCars.push(cphm.toUpperCase());
           $(card).find('input').attr('readOnly', 'readOnly');
           $(card).find('button').text('已锁定').attr('disabled', 'disabled');
         }else{
