@@ -13,6 +13,8 @@ angular.module('ngFancy')
         }else{
           $scope.fallback = true;
         }
+      }else{
+        $('md-card.error').show();
       }
     });
 
