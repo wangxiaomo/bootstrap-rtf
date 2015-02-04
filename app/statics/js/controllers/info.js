@@ -49,7 +49,7 @@ angular.module('ngFancy')
         alert("请先锁定全部相关事故人信息!");
         return;
       }else{
-        $('#overlay').show();
+        $('#overlay').show().loadingOverlay();
 
         var users = [],
             cards = $('md-card');
@@ -71,6 +71,7 @@ angular.module('ngFancy')
             users: users
           };
           API.sendEvent(event).then(function(d) {
+            $('#overlay').loadingOverlay('remove').hide();
             if(d.r == 1){
               event.sgbh = d.msg.sgbh;
               event.role = d.msg.role;
@@ -83,11 +84,9 @@ angular.module('ngFancy')
               delete $localStorage.pics;
               delete $localStorage.loc;
 
-              $('#overlay').hide();
               $location.path('/done');
             }else{
               alert("啊哦，不知道为什么出错了，请重新试一次");
-              $('#overlay').hide();
               return false;
             }
           });
