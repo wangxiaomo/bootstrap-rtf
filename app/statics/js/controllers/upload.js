@@ -40,12 +40,8 @@ angular.module('ngFancy')
 
     $('#hidden-input').fileupload({
       dataType: 'json',
-      disableImageResize: false,
       url: 'http://www.sxgajj.gov.cn/web/index.php/Weixin/upload',
       maxFileSize: 5000000,
-      imageMaxWidth: 400,
-      imageMaxHeight: 300,
-      imageCrop: true,
       acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
       start: function(e) {
         $('#overlay').show().loadingOverlay();
