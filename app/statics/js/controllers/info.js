@@ -28,77 +28,89 @@ angular.module('ngFancy')
     };
     getLocData();
 
-    var lockInput = function (i, e) {
-      e.preventDefault();
-      var card = $('md-card[data-card-id=' + i + ']');
+    var isMobile = function(v) {
+      return /\d{11}/.test(v);
+    };
+    var isCPHM = function(v) {
+      return /\w{6}/.test(v);
+    };
+    var checkFormValid = function() {
+      var telsInput = $('input[name=tel]'),
+          telsVal = _.map(telsInput, function(i) {
+            return $(i).val();
+          }),
+          telsFlag = _.map(telsVal, isMobile),
+          cphmInput = $('input[name=cphm]'),
+          cphmVal = _.map(cphmInput, function(i) {
+            return $(i).val();
+          }),
+          cphmFlag = _.map(cphmVal, isCPHM);
 
-      var tel = $.trim($(card).find('input[name=tel]').val()),
-          cphm = $.trim($(card).find('input[name=cphm]').val()),
-          sbdm = $.trim($(card).find('input[name=sbdm]').val());
-      if(_.indexOf(lockedCars, cphm.toUpperCase()) !== -1) {
-        alert("请不要重复提交相同的车辆信息");
+      if(!_.every(telsFlag)){
+        alert("请正确填写手机号码!");
         return false;
       }
-      API.check(tel, cphm, sbdm).then(function(data){
-        if(data.r == 1){
-          lockedCars.push(cphm.toUpperCase());
-          $(card).find('input').attr('readOnly', 'readOnly');
-          $(card).find('button').text('已锁定').attr('disabled', 'disabled');
-        }else{
-          alert(data.msg);
-        }
-      });
+      if(_.union(telsVal).length !== totalCount){
+        alert("请不要填写重复的手机号码!");
+        return false;
+      }
+      if(!_.every(cphmFlag)){
+        alert("请正确填写车牌号码!");
+        return false;
+      }
+      if(_.union(cphmVal).length !== totalCount){
+        alert("请不要填写重复的车辆!");
+        return false;
+      }
+      return true;
     };
 
-    $scope.lockInput = lockInput;
     $scope.goNext = function () {
-      var buttons = $('button:disabled');
-      if(buttons.length !== totalCount){
-        alert("请先锁定全部相关事故人信息!");
+      if(checkFormValid() === false){
         return;
-      }else{
-        $('#overlay').show().loadingOverlay();
-
-        var users = [],
-            cards = $('md-card');
-        _.each(cards, function(o) {
-          users.push({
-            tel: $.trim($(o).find('input[name=tel]').val()),
-            cphm: $.trim($(o).find('input[name=cphm]').val()),
-            sbdh: $.trim($(o).find('input[name=sbdm]').val()),
-            insurance: $.trim($(o).find('input[name=bxgs]').val())
-          });
-        });
-
-        // API 插入信息, 返回事故
-        getLocData(function(){
-          var event = {
-            loc: $localStorage.loc,
-            imgs: $localStorage.pics,
-            count: $localStorage.count,
-            users: users
-          };
-          API.sendEvent(event).then(function(d) {
-            $('#overlay').loadingOverlay('remove').hide();
-            if(d.r == 1){
-              event.sgbh = d.msg.sgbh;
-              event.role = d.msg.role;
-              event.date = (new Date()).toLocaleDateString();
-              $localStorage.lastEventID = event.sgbh;
-              $localStorage.events = $localStorage.events || {};
-              $localStorage.events[$localStorage.lastEventID] = event;
-
-              delete $localStorage.count;
-              delete $localStorage.pics;
-              delete $localStorage.loc;
-
-              $location.path('/done');
-            }else{
-              alert("啊哦，不知道为什么出错了，请重新试一次");
-              return false;
-            }
-          });
-        });
       }
+
+      $('#overlay').show().loadingOverlay();
+
+      var users = [],
+          cards = $('md-card');
+      _.each(cards, function(o) {
+        users.push({
+          tel: $.trim($(o).find('input[name=tel]').val()),
+          cphm: $.trim($(o).find('input[name=cphm]').val()),
+          sbdh: '',
+          insurance: $.trim($(o).find('select').val())
+        });
+      });
+
+      // API 插入信息, 返回事故
+      getLocData(function(){
+        var event = {
+          loc: $localStorage.loc,
+          imgs: $localStorage.pics,
+          count: $localStorage.count,
+          users: users
+        };
+        API.sendEvent(event).then(function(d) {
+          $('#overlay').loadingOverlay('remove').hide();
+          if(d.r == 1){
+            event.sgbh = d.msg.sgbh;
+            event.role = d.msg.role;
+            event.date = (new Date()).toLocaleDateString();
+            $localStorage.lastEventID = event.sgbh;
+            $localStorage.events = $localStorage.events || {};
+            $localStorage.events[$localStorage.lastEventID] = event;
+
+            delete $localStorage.count;
+            delete $localStorage.pics;
+            delete $localStorage.loc;
+
+            $location.path('/done');
+          }else{
+            alert("啊哦，不知道为什么出错了，请重新试一次");
+            return false;
+          }
+        });
+      });
     };
   }]);
