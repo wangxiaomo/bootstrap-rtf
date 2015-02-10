@@ -1,8 +1,9 @@
 <div class="list-wrapper" ng-controller="ListCtrl">
   <div class="list-search-wrapper">
-    <p class="meta">以下是您的轻微事故历史纪录，请点击查看</p>
+    <p class="meta">以下是您的轻微事故历史纪录</p>
+    <p class="meta">请输入对应的事故编码进行查询</p>
     <div class="search">
-      <span class="search"><input type="text" name="eventID" /></span>
+      <span class="search"><input type="text" name="eventID" placeholder="如SG150204202CB962" /></span>
       <span class="search-btn"><button class="btn btn-search" data-ng-click="search()">查询</button></span>
     </div>
   </div>

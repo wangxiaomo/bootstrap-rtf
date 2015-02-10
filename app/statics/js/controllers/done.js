@@ -1,5 +1,7 @@
 angular.module('ngFancy')
   .controller('DoneCtrl', ['$scope', '$localStorage', '$location', function($scope, $localStorage, $location) {
+
+    window.document.title = '提交成功';
     
     try {
       $scope.event = $localStorage.events[$localStorage.lastEventID];

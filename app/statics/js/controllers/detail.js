@@ -2,6 +2,8 @@ angular.module('ngFancy')
   .controller('DetailCtrl', ['$scope', '$localStorage', '$location', '$routeParams', 'API',
       function($scope, $localStorage, $location, $routeParams, API) {
 
+    window.document.title = '事故详情';
+
     var params = $routeParams,
         eventID = params.eventID;
 

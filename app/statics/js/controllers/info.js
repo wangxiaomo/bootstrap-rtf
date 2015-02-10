@@ -2,6 +2,8 @@ angular.module('ngFancy')
   .controller('InfoCtrl', ['$scope', '$localStorage', '$location', 'API',
       function($scope, $localStorage, $location, API) {
 
+    window.document.title = '输入事故方信息';
+
     var pics = $localStorage.pics,
         totalCount = $localStorage.count,
         lockedCars = [],

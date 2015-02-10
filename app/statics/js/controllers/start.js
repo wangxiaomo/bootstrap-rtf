@@ -1,5 +1,6 @@
 angular.module('ngFancy')
   .controller('StartCtrl', ['$scope', '$modal', '$location', function($scope, $modal, $location) {
+    window.document.title = '轻微事故快处';
 
     var getHour = function () {
       var date = new Date();

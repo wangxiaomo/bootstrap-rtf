@@ -1,6 +1,8 @@
 angular.module('ngFancy')
   .controller('UploadCtrl', ['$scope', '$localStorage', '$location', '$modal', '$compile', function($scope, $localStorage, $location, $modal, $compile) {
 
+    window.document.title = '现场取证';
+
     var count = $localStorage.count,
         photoCount = 3;
     if(count < 2 || count > 5) {

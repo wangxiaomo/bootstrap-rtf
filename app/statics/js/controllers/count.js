@@ -1,6 +1,8 @@
 angular.module('ngFancy')
   .controller('CountCtrl', ['$scope', '$localStorage', '$location', '$routeParams',
       function($scope, $localStorage, $location, $routeParams) {
+  
+    window.document.title = '选择事故车辆数量';
 
     $scope.i = 2;
 

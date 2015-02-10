@@ -451,6 +451,13 @@ md-content {
       padding: 20px;
       border: 1px solid #d2d2d2;
       background-color: #fafafa;
+      text-align: center;
+
+      .important {
+        color: red;
+        text-align: center;
+        font-size: 14px;
+      }
     }
   }
 
@@ -484,6 +491,10 @@ md-content {
 
   .meta {
     margin-top: 10px;
+  }
+
+  .search-meta {
+    margin: -10px 0px 10px;
   }
 
   .search {
@@ -670,6 +681,21 @@ md-content {
 
   form {
     margin-top: 45px;
+    .cphm-form-group {
+      position: relative;
+
+      .cphm-input {
+        padding-left: 30px;
+      }
+
+      span {
+        position: absolute;
+        left: 40%;
+        top: 5px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
   }
 
   .btn-update-mobile {

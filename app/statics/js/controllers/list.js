@@ -1,5 +1,6 @@
 angular.module('ngFancy')
   .controller('ListCtrl', ['$scope', '$localStorage', '$location', function($scope, $localStorage, $location) {
+    window.document.title = '事故列表';
 
     $scope.events = _.sortBy(_.values($localStorage.events), function(v) {
       return v.date;
