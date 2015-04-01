@@ -18,6 +18,17 @@ angular.module('ngFancy')
       });
     };
 
+    $scope.showModal2 = function () {
+      $('#overlay').show();
+      var modalInstance = $modal.open({
+        templateUrl: 'modal-alert2',
+        controller: 'StartModalCtrl',
+        backdrop: false,
+        keyboard: false,
+        size: 'lg',
+      });
+    };
+
     $scope.goHash = function (hash) {
       $location.path(hash);
     };

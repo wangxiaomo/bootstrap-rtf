@@ -24,9 +24,10 @@ gulp.task 'clean', (cb) ->
   del paths, cb
 
 gulp.task 'coffee', () ->
-  gulp.src 'app/statics/coffee/**/*.coffee'
-    .pipe coffee({bare: true}).on 'error', gutil.log
-    .pipe gulp.dest 'app/statics/js'
+  if USE_COFFEE
+    gulp.src 'app/statics/coffee/**/*.coffee'
+      .pipe coffee({bare: true}).on 'error', gutil.log
+      .pipe gulp.dest 'app/statics/js'
 
 gulp.task 'compass', () ->
   gulp.src 'app/statics/scss/**/*.scss'

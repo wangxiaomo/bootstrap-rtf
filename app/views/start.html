@@ -13,7 +13,8 @@
       <button class="btn btn-primary btn-go" ng-click="go()">开始处理</button>
       <div class="button-sub-groups">
         <button class="btn btn-test" ng-click="showModal()">处理时间</button>
-        <button class="btn btn-result" ng-click="goHash('/list')">查询结果</button>
+        <!-- <button class="btn btn-result" ng-click="goHash('/list')">查询结果</button> -->
+        <button class="btn btn-result" ng-click="showModal2()">责任划分提示</button>
       </div>
     </div>
   </div>
@@ -28,6 +29,37 @@
         <p>"快处中心"受理时间为</p>
         <p class="p-bold">早<i class="clock">7</i>点至晚<i class="clock">21</i>点</p>
       </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-goback" ng-click="dismiss()">返回</button>
+    </div>
+  </script>
+  <script type="text/ng-template" id="modal-alert2">
+    <div class="modal-header">
+      <h3 class="modal-title">责任划分提示</h3>
+    </div>
+    <div class="modal-body" style="text-align: left">
+      <pre>
+发生符合本《实施办法》适用范围的事故，一方无过错，另一方有下列行为之一的负全部责任： 
+  1、机动车通过有灯控路口时，不按所需行进方向驶入导向车道的。
+  2、机动车通过路口时违反交通信号的。
+  3、机动车通过路口遇放行信号不依次通过的。
+  4、机动车准备进入环形路口不让已在路口内的机动车先行的。
+  5、通过无灯控或交警指挥的路口，转弯的机动车未让直行的车辆先行的。
+  6、通过无灯控或交警指挥的路口，相对方向行驶的右转弯机动车不让左转弯机动车先行的。
+  7、机动车通过无灯控或交警指挥的路口，不按交通标志、标线指示让优先通行的一方先行的。
+  8、前车左转弯、掉头、超车时超车的。
+  9、与对面来车有会车可能时超车的。
+  10、超车后未与被超车辆拉开必要安全距离驶回原车道的。
+  11、机动车逆向行驶的。
+  12、在没有中心隔离设施或者没有中心线的路段上，机动车遇相对方向来车时，未减速靠右行驶，并与其他车辆、行人保持必要安全距离的。
+  13、在没有中心隔离设施或者没有中心线有障碍的路段上，机动车遇相对方向来车时，未让无障碍的一方先行的。
+  14、车辆进出道路，未让在道路内正常行驶的车辆优先通行的。
+  15、借道通行、变更车道时，未让所借道路内的车辆优先通行，或者妨碍其他车辆通行，或者左右两侧车道的车辆向同一车道变更时，左侧车道的车辆未让右侧车道的车辆先行的。
+  16、机动车在禁止掉头或者禁止左转弯标志、标线的地点掉头的。
+  17、开关车门时造成交通事故的。
+  18、其他单方过错行为造成交通事故的。
+      </pre>
     </div>
     <div class="modal-footer">
       <button class="btn btn-goback" ng-click="dismiss()">返回</button>
