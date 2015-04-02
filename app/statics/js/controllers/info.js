@@ -42,7 +42,7 @@ angular.module('ngFancy')
           telsFlag = _.map(telsVal, isMobile),
           cphmInput = $('input[name=cphm]'),
           cphmVal = _.map(cphmInput, function(i) {
-            return $(i).val();
+            return $(i).val().toUpperCase();
           }),
           cphmFlag = _.map(cphmVal, isCPHM);
 
@@ -77,7 +77,7 @@ angular.module('ngFancy')
       _.each(cards, function(o) {
         users.push({
           tel: $.trim($(o).find('input[name=tel]').val()),
-          cphm: $.trim($(o).find('input[name=cphm]').val()),
+          cphm: $.trim($(o).find('input[name=cphm]').val().toUpperCase()),
           sbdh: '',
           insurance: $.trim($(o).find('select').val())
         });
@@ -96,7 +96,12 @@ angular.module('ngFancy')
           if(d.r == 1){
             event.sgbh = d.msg.sgbh;
             event.role = d.msg.role;
-            event.date = (new Date()).toLocaleDateString();
+            event.flag = d.msg.flag;
+            if(event.flag == 1) {
+              event.date = d.msg.date;
+            }else{
+              event.date = (new Date()).toLocaleDateString();
+            }
             $localStorage.lastEventID = event.sgbh;
             $localStorage.events = $localStorage.events || {};
             $localStorage.events[$localStorage.lastEventID] = event;
