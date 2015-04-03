@@ -1,4 +1,4 @@
-<div class="content-wrapper" ng-controller="DoneCtrl">
+<div class="content-wrapper">
   <p class="hd">事故编码</p>
   <div class="code-wrapper">
     <div class="code" ng-if="event.flag == 0">ID: {{ event.sgbh }}<br><span class="important">请妥善保存好事故编码</span></div>
@@ -17,7 +17,6 @@
     </div>
     <div class="center-info" data-ng-if="fallback">
       <p>事故提交成功</p>
-      <p>但地理位置获取失败</p>
       <p>请到就近的快处中心前往处理</p>
     </div>
     <button class="btn btn-submit" ng-click="goHome()">返回首页</button>

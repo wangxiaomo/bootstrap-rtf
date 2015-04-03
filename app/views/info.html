@@ -1,4 +1,4 @@
-<div ng-controller="InfoCtrl" class="mobile-page">
+<div class="mobile-page">
   <md-content class="info-content">
     <md-card ng-repeat="i in counts" data-card-id="{{ i }}">
       <span class="card-hd">{{ numCN[i] }}方</span>
@@ -15,8 +15,11 @@
         <div class="form-group">
           <label for="bxgs" class="form-label">投保保险:</label>
           <select name="bxgs" class="form-control">
+            <option value="中国平安保险">中国平安保险</option>
+            <option value="中国人保">中国人保</option>
             <option value="太平洋保险">太平洋保险</option>
-            <option value="中国保险">中国保险</option>
+            <option value="中国大地财险">中国大地财险</option>
+            <option value="中国人寿财险">中国人寿财险</option>
             <option value="其他保险">其他保险</option>
           </select>
         </div>

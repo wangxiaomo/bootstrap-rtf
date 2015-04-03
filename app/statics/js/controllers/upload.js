@@ -2,6 +2,7 @@ angular.module('ngFancy')
   .controller('UploadCtrl', ['$scope', '$localStorage', '$location', '$modal', '$compile', function($scope, $localStorage, $location, $modal, $compile) {
 
     window.document.title = '现场取证';
+    alert("若手机无法正常拍照上传，请先打开相机拍照保存然后从相册进行选择上传");
 
     var count = $localStorage.count,
         photoCount = 3;

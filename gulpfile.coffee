@@ -49,7 +49,7 @@ gulp.task 'source-maps', () ->
     .pipe gulp.dest 'dist/statics/js'
 
 gulp.task 'images', () ->
-  gulp.src 'app/statics/images/*'
+  gulp.src 'app/statics/images/**/*'
     .pipe imagemin({optimizationLevel: IMGMIN_OPTIMIZATION_LEVEL})
     .pipe gulp.dest 'dist/statics/images'
 

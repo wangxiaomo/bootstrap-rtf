@@ -28,5 +28,9 @@ angular.module('ngFancy', ['ngRoute', 'ngStorage', 'ui.bootstrap', 'angular-load
       .when('/detail/:eventID', {
         templateUrl: 'views/detail.html',
         controller: 'DetailCtrl'
+      })
+      .when('/doc', {
+        templateUrl: 'views/doc.html',
+        controller: 'DocCtrl'
       });
   }]);

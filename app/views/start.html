@@ -1,4 +1,4 @@
-<div ng-controller="StartCtrl">
+<div>
   <div class="hd-alert">
     <span class="hd-memo">提示</span>
     <p>为确保安全请放置警示标志、开启双闪灯、注意过往车辆。</p>
@@ -12,7 +12,7 @@
     <div class="button-groups">
       <button class="btn btn-primary btn-go" ng-click="go()">开始处理</button>
       <div class="button-sub-groups">
-        <button class="btn btn-test" ng-click="showModal()">处理时间</button>
+        <button class="btn btn-test" ng-click="goHash('/doc')">功能介绍</button>
         <!-- <button class="btn btn-result" ng-click="goHash('/list')">查询结果</button> -->
         <button class="btn btn-result" ng-click="showModal2()">责任划分提示</button>
       </div>
@@ -40,7 +40,7 @@
     </div>
     <div class="modal-body" style="text-align: left">
       <pre>
-发生符合本《实施办法》适用范围的事故，一方无过错，另一方有下列行为之一的负全部责任： 
+  <span style="color:red">发生符合本《实施办法》适用范围的事故，一方无过错，另一方有下列行为之一的负全部责任：</span>
   1、机动车通过有灯控路口时，不按所需行进方向驶入导向车道的。
   2、机动车通过路口时违反交通信号的。
   3、机动车通过路口遇放行信号不依次通过的。
