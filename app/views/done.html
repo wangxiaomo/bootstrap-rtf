@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <p class="hd">事故编码</p>
   <div class="code-wrapper">
-    <div class="code" ng-if="event.flag == 0">ID: {{ event.sgbh }}<br><span class="important">请妥善保存好事故编码</span></div>
+    <div class="code" ng-if="event.flag == 0">事故已提交成功，请妥善保管好以下事故编码<br><span class="important">{{ event.sgbh }}</span></div>
     <div class="code" ng-if="event.flag == 1">您好，该起事故已于 {{ event.date }} 提交报案成功，事故编码为 {{ event.sgbh }}<br>为确保证据充实，可拍摄更多照片自行保存，以备到快处中心处理时使用。</div>
   </div>
   <div class="meta">
