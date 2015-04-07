@@ -13,8 +13,9 @@
       <button class="btn btn-primary btn-go" ng-click="go()">开始处理</button>
       <div class="button-sub-groups">
         <button class="btn btn-test" ng-click="goHash('/doc')">功能介绍</button>
+        <button class="btn btn-info" ng-click="showModal3()">快处信息</button>
         <!-- <button class="btn btn-result" ng-click="goHash('/list')">查询结果</button> -->
-        <button class="btn btn-result" ng-click="showModal2()">责任划分提示</button>
+        <button class="btn btn-result" ng-click="showModal2()">责任划分</button>
       </div>
     </div>
   </div>
@@ -28,6 +29,26 @@
       <div class="meta">
         <p>"快处中心"受理时间为</p>
         <p class="p-bold">早<i class="clock">7</i>点至晚<i class="clock">21</i>点</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-goback" ng-click="dismiss()">返回</button>
+    </div>
+  </script>
+  <script type="text/ng-template" id="modal-alert3">
+    <div class="modal-header">
+      <h3 class="modal-title">快处信息</h3>
+    </div>
+    <div class="modal-body">
+      <div class="block">
+        <h3>滨河西路快处中心快赔中心</h3>
+        <p><a href="tel:0351-6181111">0351-6181111</a></p>
+        <p>太原市晋源区新晋祠路686号（太原市极限汽车修理有限公司厂区内）</p>
+      </div>
+      <div class="block">
+        <h3>南内环东街快处快赔中心</h3>
+        <p><a href="tel:0351-6161619">0351-6161619</a></p>
+        <p>太原市迎泽区南内环街与建设路交叉口往东800米（山西荣达汽修有限公司厂区内）</p>
       </div>
     </div>
     <div class="modal-footer">

@@ -116,7 +116,7 @@ footer {
   }
 
   .btn-go, .btn-test, .btn-result {
-    padding: 12px;
+    padding: 6px;
   }
 
   .btn-go {
@@ -124,12 +124,18 @@ footer {
     border-color: #3d9af7;
   }
 
-  .btn-test, .btn-result {
+  .btn-test, .btn-result, .btn-info {
+    width: 30%;
     background-color: #3bb9f3;
   }
 
   .btn-test {
     float: left;
+  }
+  
+  .btn-info {
+    float: left;
+    margin-left: 5%;
   }
 
   .btn-result {
@@ -743,4 +749,11 @@ md-content {
   .btn-goHome {
     width: 95%;
   }
+}
+
+.modal-body .block {
+  padding: 10px;
+  background: #efefef;
+  margin-bottom: 15px;
+  text-align: left;
 }
