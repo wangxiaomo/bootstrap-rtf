@@ -1,9 +1,13 @@
 angular.module('ngFancy').service('API', ['$http', '$q', function($http, $q) {
-  var getLoc = function () {
+  this.getLoc = function () {
     var geolocation = new BMap.Geolocation(),
         defered = $q.defer();
     geolocation.getCurrentPosition(function(r) {
-      defered.resolve(r);
+      defered.resolve({
+        status: this.getStatus(),
+        lat: r.point.lat,
+        lng: r.point.lng
+      });
     }, {enableHighAccuracy: true});
     return defered.promise;
   };
@@ -13,24 +17,6 @@ angular.module('ngFancy').service('API', ['$http', '$q', function($http, $q) {
         geoc = new BMap.Geocoder();
     geoc.getLocation(r.point, function(rs) {
       defered.resolve(rs);
-    });
-    return defered.promise;
-  };
-
-  this.getLocData = function () {
-    var defered = $q.defer();
-    getLoc().then(function(r) {
-      var point = r.point;
-      getDecodedLoc(point).then(function(rs) {
-        var district = rs && rs.province || '',
-            loc = rs && rs.province + rs.city + rs.district + rs.street + rs.streetNumber || ''
-        defered.resolve({
-          lat: point.lat,
-          lng: point.lng,
-          district: district,
-          loc: loc
-        });
-      });
     });
     return defered.promise;
   };

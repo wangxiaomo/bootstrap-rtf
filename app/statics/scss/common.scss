@@ -31,7 +31,7 @@ md-content {
   img {
     position: absolute;
     width: 10%;
-    top: 47%;
+    top: 50%;
     left: 45%;
   }
 }
@@ -57,16 +57,16 @@ footer {
   position: absolute;
   display: inline-block;
   color: #000;
-  left: 7%;
+  left: 3%;
   top: 28px;
 }
 
 .hd-alert p {
   float: right;
   width: 80%;
-  color: #db4a5a;
+  color: red;
   font-size: 15px;
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 0px 10px;
 }
 

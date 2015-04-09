@@ -16,9 +16,10 @@ angular.module('ngFancy')
     $scope.numCN = numCN;
     $scope.counts = _.range(totalCount);
 
+    $localStorage.loc = undefined;
     var getLocData = function(cb) {
       if(!$localStorage.loc) {
-        API.getLocData().then(function(r) {
+        API.getLoc().then(function(r) {
           $localStorage.loc = r;
           cb && cb();
         });
@@ -85,6 +86,13 @@ angular.module('ngFancy')
 
       // API 插入信息, 返回事故
       getLocData(function(){
+        // 检查定位状态
+        var status = $localStorage.loc.status;
+        if(status != BMAP_STATUS_SUCCESS){
+          alert("定位异常，请确保您的手机已打开定位服务!");
+          return false;
+        }
+
         var event = {
           loc: $localStorage.loc,
           imgs: $localStorage.pics,

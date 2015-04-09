@@ -47,7 +47,9 @@ angular.module('ngFancy')
       maxFileSize: 5000000,
       acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
       start: function(e) {
-        $('#overlay').show().loadingOverlay();
+        $('#overlay').show().loadingOverlay({
+          loadingText: '数据上传中<br><font style="font-size:12px;margin-top: 10px; display:block;">若网速较慢，长时间无法上传，请点击重拍继续操作</font>'
+        });
       },
       done: function(e, data) {
         var files = data.result.files;
