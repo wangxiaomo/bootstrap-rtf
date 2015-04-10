@@ -163,10 +163,6 @@ footer {
     margin: 5% 0;
     color: #fff;
     @include border-radius(0px);
-
-    &:hover {
-      color: #fff;
-    }
   }
 }
 
