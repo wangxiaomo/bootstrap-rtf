@@ -28,6 +28,21 @@ angular.module('ngFancy')
       });
     };
 
+    $('img.thumb-img').on('click', function(e){
+      var src = $(this).attr('src');
+      $('#overlay').show();
+      var modalInstance = $modal.open({
+        templateUrl: 'modal-alert',
+        controller: 'ShowBigModalCtrl',
+        backdrop: false,
+        keyboard: false,
+        size: 'lg',
+        resolve: {
+          modalImgSrc: function() { return src; }
+        }
+      });
+    });
+
     $scope.addAnotherPhoto = function () {
       if(photoCount >= 6) {
         alert("最多只能传6张照片,您可以将照片存储在手机中以备使用");

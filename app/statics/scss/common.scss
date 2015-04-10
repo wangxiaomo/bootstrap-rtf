@@ -58,7 +58,7 @@ footer {
   display: inline-block;
   color: #000;
   left: 3%;
-  top: 28px;
+  top: 18px;
 }
 
 .hd-alert p {
@@ -111,31 +111,42 @@ footer {
   margin-top: 20px;
   text-align: center;
 
+  .button-sub-groups {
+    height: 120px;
+  }
+
   .btn-go, .button-sub-groups {
     width: 90%;
   }
 
-  .btn-go, .btn-test, .btn-result {
-    padding: 6px;
+  .btn-go, .btn-doc, .btn-info {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 2% 0 0;
+    font-weight: bold;
   }
 
   .btn-go {
+    font-size: 19px;
     background-color: #3d9af7;
     border-color: #3d9af7;
+    color: #fff;
   }
 
-  .btn-test, .btn-result, .btn-info {
-    width: 30%;
-    background-color: #3bb9f3;
+  .btn-doc, .btn-info {
+    width: 49%;
+    font-size: 17px;
+    color: #3d9af7;
+    border-color: #3d9af7;
+    background-color: #fff;
   }
 
-  .btn-test {
+  .btn-doc {
     float: left;
   }
   
   .btn-info {
-    float: left;
-    margin-left: 5%;
+    float: right;
   }
 
   .btn-result {
