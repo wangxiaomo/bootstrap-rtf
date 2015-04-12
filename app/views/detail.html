@@ -5,7 +5,7 @@
   </md-card>
   <md-card ng-if="event">
     <div class="detail-image-wrapper">
-      <img alt="event detail img" ng-src="http://www.sxgajj.gov.cn{{ p.thumb }}" ng-repeat="p in event.pics" />
+      <img alt="event detail img" data-url="http://www.sxgajj.gov.cn{{ p.url }}" ng-src="http://www.sxgajj.gov.cn{{ p.thumb }}" ng-repeat="p in event.pics" class="thumb-img" />
     </div>
     <div class="content">
       <span>事故时间:</span>
@@ -21,3 +21,14 @@
     </div>
   </md-card>
 </div>
+<script type="text/ng-template" id="modal-alert">
+  <div class="modal-header">
+    <h3 class="modal-title">查看</h3>
+  </div>
+  <div class="modal-body">
+    <img class="img-large" src="{{ modalImgSrc }}" alt="img" />
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-goback" ng-click="dismiss()">返回</button>
+  </div>
+</script>

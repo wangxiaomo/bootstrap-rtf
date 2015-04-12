@@ -1,6 +1,6 @@
 angular.module('ngFancy')
-  .controller('DetailCtrl', ['$scope', '$localStorage', '$location', '$routeParams', 'API',
-      function($scope, $localStorage, $location, $routeParams, API) {
+  .controller('DetailCtrl', ['$scope', '$localStorage', '$location', '$routeParams', 'API', '$modal',
+      function($scope, $localStorage, $location, $routeParams, API, $modal) {
 
     window.document.title = '事故详情';
 
@@ -23,4 +23,19 @@ angular.module('ngFancy')
     $scope.goSearch = function() {
       $location.path('/list');
     };
+
+    $(document).on('click', '.thumb-img', function(e){
+      var src = $(this).data('url');
+      $('#overlay').show();
+      var modalInstance = $modal.open({
+        templateUrl: 'modal-alert',
+        controller: 'ShowBigModalCtrl',
+        backdrop: false,
+        keyboard: false,
+        size: 'lg',
+        resolve: {
+          modalImgSrc: function() { return src; }
+        }
+      });
+    });
   }]);
