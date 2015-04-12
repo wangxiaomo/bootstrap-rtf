@@ -40,6 +40,12 @@ angular.module('ngFancy').service('API', ['$http', '$q', function($http, $q) {
     });
   };
 
+  this.searchEvent = function(data) {
+    return post('http://www.sxgajj.gov.cn/fancy/index.php?g=Api&m=wechat&a=searchEvent', {
+      data: data
+    });
+  };
+
   this.check = function(tel, cphm, sbdh) {
     return post('/fancy/index.php?g=Api&m=wechat&a=check_car', {
       tel: tel,

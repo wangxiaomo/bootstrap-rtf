@@ -1,5 +1,5 @@
 angular.module('ngFancy')
-  .controller('ListCtrl', ['$scope', '$localStorage', '$location', function($scope, $localStorage, $location) {
+  .controller('ListCtrl', ['$scope', '$localStorage', '$location', 'API', function($scope, $localStorage, $location, API) {
     window.document.title = '事故列表';
 
     $scope.events = _.sortBy(_.values($localStorage.events), function(v) {
@@ -15,7 +15,13 @@ angular.module('ngFancy')
     };
 
     $scope.search = function () {
-      var eventID = $.trim($('input[name=eventID]').val());
-      goDetail(eventID);
+      var data = $.trim($('input[name=eventID]').val());
+      API.searchEvent(data).then(function(d){
+        if(d.r == 1){
+          $scope.events = d.msg.event;
+        }else{
+          $scope.events = [];
+        }
+      });
     };
   }]);
