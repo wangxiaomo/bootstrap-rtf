@@ -4,7 +4,7 @@ angular.module('ngFancy')
 
     $scope.events = _.sortBy(_.values($localStorage.events), function(v) {
       return v.date;
-    }).reverse();
+    });
 
     var goDetail = function (id) {
       $location.path('/detail/' + id);

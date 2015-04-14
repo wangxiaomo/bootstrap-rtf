@@ -16,6 +16,7 @@ angular.module('ngFancy')
           $scope.fallback = true;
         }
       }else{
+        delete $localStorage.events[eventID];
         $('md-card.error').show();
       }
     });
