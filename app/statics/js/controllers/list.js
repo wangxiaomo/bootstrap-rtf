@@ -14,6 +14,10 @@ angular.module('ngFancy')
       goDetail(eventID);
     };
 
+    $scope.goHome = function() {
+      $location.path('/');
+    };
+
     $scope.search = function () {
       var data = $.trim($('input[name=eventID]').val());
       API.searchEvent(data).then(function(d){
